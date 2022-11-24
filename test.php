@@ -1,26 +1,19 @@
-<form action="#" method="post">
-    Which buildings do you want access to?<br/>
-    <input type="checkbox" name="formDoor[]" value="A"/>Acorn Building<br/>
-    <input type="checkbox" name="formDoor[]" value="B"/>Brown Hall<br/>
-    <input type="checkbox" name="formDoor[]" value="C"/>Carnegie Complex<br/>
-    <input type="checkbox" name="formDoor[]" value="D"/>Drake Commons<br/>
-    <input type="checkbox" name="formDoor[]" value="E"/>Elliot House
-
-    <input type="submit" name="formSubmit" value="Submit"/>
-    <form>
-
 <?php
-if (isset($_POST['formDoor'])) {
-    $aDoor = $_POST['formDoor'];
-    if (empty($aDoor)) {
-        echo("You didn't select any buildings.");
-    } else {
-        $N = count($aDoor);
-
-        echo("You selected $N door(s): ");
-        for ($i = 0; $i < $N; $i++) {
-            echo($aDoor[$i] . " ");
-        }
-    }
+$array=[
+        ["a1,a2,a3"],
+        ["b1,b2,b3"]
+        ];
+echo "<pre>";
+print_r($array);
+echo "</pre>";
+$count=count($array);
+for ($i=0;$i<$count;$i++) {
+    $a = array_merge($array[$i], $array[$i+1]);
 }
+//print_r($a);
+$c=implode(',',$a);
+//echo $c;
+$d=explode(',',$c);
+print_r($d);
+
 ?>

@@ -101,22 +101,13 @@ $seat = [
         "A23"
     ]
 ];
-
-$close = ["D1", "D12", "A3", "B10"];
-//print_r($seat_close);
-//$te=implode(',',$seat_close);
-//$test=explode(',',$te);
-//print_r($test);
-//print_r($seat_close);
-//
-////    $close = explode(',', $sss);
-//   $ttt=array_merge($seat_close>$seat_close[0],$seat_close[1]);
-//$close=$ttt;
-//print_r($ttt);
-
-
-
-
+if (!empty($seat_close)) {
+    foreach ($seat_close as $value) {
+        $array[] = $value->ghe;
+    }
+    $a = implode(',', $array);
+    $close = explode(',', $a);
+}
 ?>
     <!-- color picker start -->
     <!-- st top header Start -->
@@ -186,7 +177,7 @@ $close = ["D1", "D12", "A3", "B10"];
                                     <li class="st_seat_heading_row"><?= $item ?></li>
                                     <?php foreach ($value as $key => $st): ?>
                                         <ul>
-                                            <li class="<?= in_array($st, $close) == true ? 'seat_disable' : '' ?>">
+                                            <li class="<?php if(!empty($close)) echo in_array($st, $close) == true ? 'seat_disable' : '' ?>">
                                                 <input type="checkbox" id="<?= $st ?>" name="seat[]" value="<?= $st ?>" placeholder="1">
                                                 <label for="<?= $st ?>"></label>
                                             </li>
