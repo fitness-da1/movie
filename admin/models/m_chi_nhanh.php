@@ -1,29 +1,28 @@
 <?php
 require_once ("database.php");
-class m_blog extends database {
-    public function insert_blog($id,$id_author, $post_name, $post_content, $post_avatar,$post_view,$post_time) {
-        $sql = "INSERT INTO blog  VALUES (?,?,?,?,?,?,?)";
+class m_chi_nhanh extends database {
+    public function insert_chi_nhanh($id,$name) {
+        $sql = "INSERT INTO chi_nhanh  VALUES (?,?)";
         $this->setQuery($sql);
-        return $this->execute(array($id,$id_author, $post_name, $post_content, $post_avatar,$post_view,$post_time));
+        return $this->execute(array($id,$name));
     }
-    public function read_blog() {
-        $sql = "SELECT * from blog";
+    public function read_chi_nhanh() {
+        $sql = "SELECT * from chi_nhanh";
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
-    public function read_blog_by_id($id) {
-        $sql = "SELECT * from blog where id = ?";
+    public function read_chi_nhanh_by_id($id) {
+        $sql = "SELECT * from chi_nhanh where id = ?";
         $this->setQuery($sql);
         return $this->loadRow(array($id));
     }
-
-    public function edit_blog( $post_name, $post_content, $post_avatar, $id) {
-        $sql = "UPDATE blog set post_name = ?,post_content = ?,post_avatar = ? where id = ?";
+    public function edit_chi_nhanh($name,$id) {
+        $sql = "UPDATE chi_nhanh set name = ? where id = ?";
         $this->setQuery($sql);
-        return $this->execute(array( $post_name, $post_content, $post_avatar, $id));
+        return $this->execute(array($name,$id));
     }
-    public  function delete_blog($id){
-        $sql="DELETE from blog where id=?";
+    public function chi_nhanh_delete($id){
+        $sql="DELETE from chi_nhanh where id=?";
         $this->setQuery($sql);
         return $this->execute(array($id));
     }

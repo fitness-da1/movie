@@ -10,18 +10,24 @@
                     <table id="zero_config" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>Full name</th>
-                                <th>Email</th>
-                                <th>Message</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>Lịch chiếu</th>
+                                <th>Khách hàng</th>
+                                <th>Giá vé</th>
+                                <th>Ngày đặt</th>
+                                <th>Ghế</th>
                             </tr>
                         </thead>
                          <tbody>
-                            <?php
+                            <?php foreach ($contact as $key => $value) { ?>
 
-                            foreach ($contact as $key => $value) { ?>
-
+                            <tr>
+                                <th>Lịch chiếu</th>
+                                <th>Khách hàng</th>
+                                <th>Giá vé</th>
+                                <th>Ngày đặt</th>
+                                <th>Ghế</th>
+                            </tr>
+                            
                             <tr>
                                 <td><?= $value->full_name ?></td>
                                 <td><?= $value->email ?></td>
@@ -33,16 +39,17 @@
                                 </td>
 
                             </tr>
+
                             <?php } ?>
 
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>Full name</th>
-                                <th>Email</th>
-                                <th>Message</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                        <tr>
+                                <th>Lịch chiếu</th>
+                                <th>Khách hàng</th>
+                                <th>Giá vé</th>
+                                <th>Ngày đặt</th>
+                                <th>Ghế</th>
                             </tr>
                         </tfoot>
                     </table>

@@ -9,28 +9,29 @@
                 <div class="table-responsive">
                     <table id="zero_config" class="table table-striped table-bordered">
                         <thead>
-                            <tr>                               
-                                <th>Categories name</th>
-                                <th>Categories meaningful</th>                              
+                            <tr>
+                            <tr>
+                               
+                                <th>Chi nhánh</th>
                                 <th>Action</th>
+                            </tr>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($categorie as $item =>$value): ?>
+                        <?php foreach ($chi_nhanh as $item => $value): ?>
                             <tr>
-                                <td><?=$value->categories_name?></td>
-                                <td><?=$value->categories_meaningful?></td>
+                                <td><?= $value->name?></td>
                                 <td>
-                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=categorie_edit&id=<?=$value->id?>'">Sửa</button>
-                                    <button type="button" class="btn btn-primary" onclick="return confirm_delete('<?=$value->id?>','<?=$value->categories_name?>') ">Xóa</button>
+                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=chi_nhanh_edit&id=<?=$value->id?>' ">Sửa</button>
+                                    <button type="button" class="btn btn-primary" onclick="return confirm_delete('<?=$value->id?>','<?=$value->name?>') ">Xóa</button>
                                 </td>
                             </tr>
                         <?php endforeach;?>
                         </tbody>
                         <tfoot>
-                        <tr>                               
-                                <th>Categories name</th>
-                                <th>Categories meaningful</th>                              
+                            <tr>
+                             
+                                <th>Chi nhánh</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -56,9 +57,10 @@
      *       Basic Table                   *
      ****************************************/
     $('#zero_config').DataTable();
+
     function confirm_delete(id,name){
-        if(confirm('Bạn chắc chắn muốn xóa '+name)){
-            window.open('?ctr=categorie_delete&id='+id,'_self');
+        if(confirm('Bạn chắc chắn muốn xóa chi nhánh'+name)){
+            window.open('?ctr=the_loai_delete&id='+id,'_self');
         }
     }
 </script>

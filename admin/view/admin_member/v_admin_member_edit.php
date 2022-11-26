@@ -24,15 +24,15 @@
                                            class="col-sm-3 text-right control-label col-form-label">Password</label>
                                     <div class="col-sm-9">
                                         <input type="password" class="form-control" id="password" name="password"
-                                               placeholder="Password Here" value="<?=$admin_member-password?>" disabled>
+                                               placeholder="Password Here" value="<?=$admin_member->pass_word?>" disabled>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="fullname" class="col-sm-3 text-right control-label col-form-label">Full
                                         Name</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="fullname" name="fullname"
-                                               placeholder="Full Name Here" value="<?=$admin_member->fullname?>">
+                                        <input type="text" class="form-control" id="full_name" name="full_name"
+                                               placeholder="Full Name Here" value="<?=$admin_member->full_name?>">
                                     </div>
                                 </div>
 
@@ -48,10 +48,10 @@
                                     <label class="col-sm-3 text-right control-label col-form-label">Vai trò</label>
                                     <div class="col-md-9">
                                         <select class="select2 form-control custom-select"
-                                                style="width: 100%; height:36px;" name="role">
+                                                style="width: 100%; height:36px;" name="vai_tro">
                                             <option>Select</option>
-                                            <option value="0" <?= $admin_member->role_==0?'selected':null ?> >Admin</option>
-                                            <option value="1" <?= $admin_member->role_==1?'selected':null ?>>CTV</option>
+                                            <option value="0" <?= $admin_member->vai_tro==0?'selected':null ?> >Admin</option>
+                                            <option value="1" <?= $admin_member->vai_tro==1?'selected':null ?>>CTV</option>
                                         </select>
                                     </div>
                                 </div>

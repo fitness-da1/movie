@@ -174,10 +174,10 @@
                             </ul>
                         </li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-users"></i><span class="hide-menu">Khách hàng</span></a>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-light fa-list"></i><span class="hide-menu">Lịch chiếu</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="?ctr=user_add" class="sidebar-link"><i class="fa-solid fa-user-plus"></i><span class="hide-menu"> Thêm khách hàng </span></a></li>
-                                <li class="sidebar-item"><a href="?ctr=user_list" class="sidebar-link"><i class="fa-solid fa-list"></i></i><span class="hide-menu"> Danh sách khách hàng </span></a></li>
+                                <li class="sidebar-item"><a href="?ctr=user_add" class="sidebar-link"><i class="fa-solid fa-user-plus"></i><span class="hide-menu"> Thêm lịch chiếu </span></a></li>
+                                <li class="sidebar-item"><a href="?ctr=user_list" class="sidebar-link"><i class="fa-solid fa-list"></i></i><span class="hide-menu"> Danh sách Lịch chiếu </span></a></li>
                             </ul>
                         </li>
 

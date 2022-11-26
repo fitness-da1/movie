@@ -10,40 +10,44 @@
                     <table id="zero_config" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>Post Id</th>
-                                <th>Post name</th>
-                                <th>Post content</th>
-                                <th>Post avatar</th>
-                                <th>Post viewer</th>
-                                <th>Post time</th>
+                                <th>Id</th>
+                                <th>Tên Phim</th>
+                                <th>Mô tả</th>
+                                <th>Thời lượng</th>
+                                <th>Rate</th>
+                                <th>Avatar</th>
+                                <th>Ngày khởi chiếu</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($blog as $item => $value): ?>
+                        <?php foreach ($phim as $item => $value): ?>
                             <tr>
                                 <td><?= $value->id?></td>
-                                <td><?= $value->post_name?></td>
-                                <td><?= $value->post_content?></td>
-                                <td><img src="../public/image/<?= $value->post_avatar?>" alt="<?= $value->post_avatar?>" height="40" width="40"></td>
-                                <td><?= $value->post_viewer?></td>
-                                <td><?= $value->post_time?></td>
+                                <td><?= $value->name?></td>
+                                <td><?= $value->description?></td>
+                                <td><?= $value->thoi_luong?></td>
+                                <td><?= $value->rate?></td>
+                                <td><img src="../public/image/<?= $value->avatar?>" alt="<?= $value->avatar?>" height="40" width="40"></td>
+                                <td><?= $value->ngay_khoi_chieu?></td>
+                              
                                 <td>
                                     <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=blog_edit&id=<?=$value->id?>' ">Sửa</button>
-                                    <button type="button" class="btn btn-primary" onclick="return confirm_delete('<?=$value->id?>','<?=$value->post_name?>') ">Xóa</button>
+                                    <button type="button" class="btn btn-primary" onclick="return confirm_delete('<?=$value->id?>','<?=$value->name?>') ">Xóa</button>
                                 </td>
                             </tr>
                         <?php endforeach;?>
                             
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>Post Id</th>
-                                <th>Post name</th>
-                                <th>Post content</th>
-                                <th>Post avatar</th>
-                                <th>Post viewer</th>
-                                <th>Post time</th>
+                        <tr>
+                                <th>Id</th>
+                                <th>Tên Phim</th>
+                                <th>Mô tả</th>
+                                <th>Thời lượng</th>
+                                <th>Rate</th>
+                                <th>Avatar</th>
+                                <th>Ngày khởi chiếu</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -71,7 +75,7 @@
         $('#zero_config').DataTable();
         function confirm_delete(id,name){
             if(confirm('Bạn chắc chắn muốn xóa '+name)){
-                window.open('?ctr=blog_delete&id='+id,'_self');
+                window.open('?ctr=phim_delete&id='+id,'_self');
             }
         }
     </script>

@@ -128,8 +128,88 @@ switch ($ctr) {
             $error = new c_404_error();
         }
         break;
-    
-
+    // chi nhanh
+    case 'chi_nhanh_add':
+        if (isset($_SESSION['user_admin'])) {
+            $chi_nhanh = new c_chi_nhanh();
+            $chi_nhanh->chi_nhanh_add();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
+    case 'chi_nhanh_delete':
+        if (isset($_SESSION['user_admin'])) {
+            $chi_nhanh = new c_chi_nhanh();
+            $chi_nhanh->chi_nhanh_delete();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
+    case 'chi_nhanh_edit':
+        if (isset($_SESSION['user_admin'])) {
+            $chi_nhanh = new c_chi_nhanh();
+            $chi_nhanh->show_chi_nhanh_edit();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
+    case 'chi_nhanh_list': 
+        if (isset($_SESSION['user_admin'])) {
+            $chi_nhanh = new c_chi_nhanh();
+            $chi_nhanh->chi_nhanh_list();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
+    case 'chi_nhanh_update':
+        if (isset($_SESSION['user_admin'])) {
+            $chi_nhanh = new c_chi_nhanh();
+            $chi_nhanh->chi_nhanh_update();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
+ // phim
+ case 'phim_add':
+    if (isset($_SESSION['user_admin'])) {
+        $phim = new c_phim();
+        $phim->phim_add();
+    } else {
+        $error = new c_404_error();
+    }
+    break;
+case 'phim_delete':
+    if (isset($_SESSION['user_admin'])) {
+        $phim = new c_phim();
+        $phim->phim_delete();
+    } else {
+        $error = new c_404_error();
+    }
+    break;
+case 'phim_edit':
+    if (isset($_SESSION['user_admin'])) {
+        $phim = new c_phim();
+        $phim->show_phim_edit();
+    } else {
+        $error = new c_404_error();
+    }
+    break;
+case 'phim_list': 
+    if (isset($_SESSION['user_admin'])) {
+        $phim = new c_phim();
+        $phim->phim_list();
+    } else {
+        $error = new c_404_error();
+    }
+    break;
+case 'phim_update':
+    if (isset($_SESSION['user_admin'])) {
+        $phim = new c_phim();
+        $phim->phim_update();
+    } else {
+        $error = new c_404_error();
+    }
+    break;
     default:
         $error = new c_404_error();
         $error->show_404_error();
