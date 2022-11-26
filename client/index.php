@@ -6,9 +6,12 @@ include_once("controllers/c_booking_type.php");
 include_once("controllers/c_movie_booking.php");
 include_once("controllers/c_seat_booking.php");
 include_once("controllers/c_movie_detail.php");
+include_once("controllers/c_user.php");
 include_once("models/m_home.php");
 include_once('models/m_lich_chieu.php');
 include_once('models/m_ticket.php');
+include_once('models/m_phim.php');
+include_once('models/m_user.php');
 $ctr = isset($_GET['ctr']) ? $_GET['ctr'] : '/';
 session_start();
 switch ($ctr) {
@@ -53,9 +56,34 @@ switch ($ctr) {
     case 'booking_ticket':
         $seat_booking=new c_seat_booking();
         $seat_booking->seat_booking();
+        break;
     case 'add_ticket':
         $add_ticket=new c_booking_type();
         $add_ticket->add_ticket();
+        break;
+    case 'login':
+        $login = new c_user();
+        $login->login();
+        break;
+    case 'logout':
+        $logout= new c_user();
+        $logout->logout();
+        break;
+    case 'show_info':
+        $show_info= new c_user();
+        $show_info->show_info();
+        break;
+    case 'signup':
+        $signup= new c_user();
+        $signup->signup();
+    case 'forgot_password':
+        $forgotpassword= new c_user();
+        $forgotpassword->forgot_password();
+        break;
+    case 'reset_password':
+        $reset_pass=new  c_user();
+        $reset_pass->reset_password();
+        break;
     default:
 //        $error = new c_404_error();
 //        $error->show_404_error();
