@@ -5,6 +5,7 @@ class c_booking_type{
     }
     public function add_ticket(){
         $m_ticket=new m_ticket();
+        date_default_timezone_set("Asia/Bangkok");
         if (isset($_POST['btn_check_out'])){
             $id=uniqid('ticket_',false);
             $id_lich_chieu=$_POST['id_lich_chieu'];

@@ -83,30 +83,14 @@
         <div class="container">
             <div class="st_calender_tabs">
                 <ul class="nav nav-tabs">
-
-                    <li class="nav-item active">
-                        <a data-toggle="tab" href="#home"><span>MON</span>
-                            <br>19</a>
+                    <?php
+                    $stt=0; foreach ($ngay_chieu as $nc): $stt1=$stt++;?>
+                    <li class="nav-item <?=$stt1==0?'active':''?>" data-time="<?=$nc->ngay_chieu?>" >
+                        <a class="nav-link" data-toggle="tab" href="<?=$stt1?>" data-phim="<?=$nc->id_phim?>" ><span><?= date_format(date_create($date=$nc->ngay_chieu),"l") ?></span>
+                            <br><?= date_format(date_create($date=$nc->ngay_chieu),"d-m") ?></a>
                     </li>
-
-                    <!--                    <li class="nav-item">-->
-                    <!--                        <a data-toggle="tab" href="#menu1"> <span>THU</span>-->
-                    <!--                            <br>20</a>-->
-                    <!--                    </li>-->
-                    <!---->
-                    <!--                    <li>-->
-                    <!--                        <a data-toggle="tab" href="#menu2"> <span>FRI</span>-->
-                    <!--                            <br>21</a>-->
-                    <!--                    </li>-->
-                    <!--                    <li>-->
-                    <!--                        <a data-toggle="tab" href="#menu3"> <span>SAT</span>-->
-                    <!--                            <br>22</a>-->
-                    <!--                    </li>-->
-                    <!--                    <li>-->
-                    <!--                        <a data-toggle="tab" href="#menu4"> <span>SUN</span>-->
-                    <!--                            <br>23</a>-->
-                    <!--                    </li>-->
-
+                    <?php endforeach;
+                    ?>
                 </ul>
             </div>
         </div>
@@ -121,356 +105,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="tab-content">
-
                                     <div id="home" class="tab-pane active">
                                         <div class="st_calender_contant_main_wrapper float_left" id="time">
-                                            <!--                                            start time-->
-                                            <!--                                            <div class="st_calender_row_cont float_left">-->
-                                            <!--                                                <div class="st_calender_asc">-->
-                                            <!--                                                    <div class="st_calen_asc_heart"><a href="#"> <i-->
-                                            <!--                                                                    class="fa fa-heart"></i></a>-->
-                                            <!--                                                    </div>-->
-                                            <!--                                                    <div class="st_calen_asc_heart_cont">-->
-                                            <!--                                                        <h3>Ariesplex SL Cinemas</h3>-->
-                                            <!--                                                        <ul>-->
-                                            <!--                                                            <li>-->
-                                            <!--                                                                <img src="view/asset/images/content/fast-food.png">-->
-                                            <!--                                                            </li>-->
-                                            <!--                                                            <li>-->
-                                            <!--                                                                <img src="view/asset/images/content/bill.png">-->
-                                            <!--                                                            </li>-->
-                                            <!--                                                        </ul>-->
-                                            <!--                                                    </div>-->
-                                            <!--                                                </div>-->
-                                            <!--                                                <div class="st_calen_asc_tecket_time_select">-->
-                                            <!--                                                    <ul id=time_chi_nhanh>-->
-                                            <!--                                                        <li>-->
-                                            <!--                                                            <a href="?ctr=seat_booking&chi_nhanh=1&time=11:30">11:30 AM</a>-->
-                                            <!--                                                        </li>-->
-                                            <!--                                                    </ul>-->
-                                            <!--                                                </div>-->
+
                                         </div>
-                                        <!--                                            end time-->
-                                        <!--                                            <div class="st_calender_row_cont st_calender_row_cont2 float_left">-->
-                                        <!--                                                <div class="st_calender_asc">-->
-                                        <!--                                                    <div class="st_calen_asc_heart"><a href="#"> <i-->
-                                        <!--                                                                    class="fa fa-heart"></i></a>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                    <div class="st_calen_asc_heart_cont">-->
-                                        <!--                                                        <h3>Carnival: Artech Mall,<br>-->
-                                        <!--                                                            Trivandrum</h3>-->
-                                        <!--                                                        <ul>-->
-                                        <!--                                                            <li>-->
-                                        <!--                                                                <img src="view/asset/images/content/ticket.png">-->
-                                        <!--                                                            </li>-->
-                                        <!--                                                            <li>-->
-                                        <!--                                                                <img src="view/asset/images/content/bill.png">-->
-                                        <!--                                                            </li>-->
-                                        <!--                                                        </ul>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                </div>-->
-                                        <!--                                                <div class="st_calen_asc_tecket_time_select">-->
-                                        <!--                                                    <ul>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">11:30 AM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">02:45 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">06:30 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                    </ul>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="st_calender_row_cont st_calender_row_cont2 float_left">-->
-                                        <!--                                                <div class="st_calender_asc">-->
-                                        <!--                                                    <div class="st_calen_asc_heart"><a href="#"> <i-->
-                                        <!--                                                                    class="fa fa-heart"></i></a>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                    <div class="st_calen_asc_heart_cont">-->
-                                        <!--                                                        <h3>Carnival: Greenfield, <br>-->
-                                        <!--                                                            Trivandrum</h3>-->
-                                        <!--                                                        <ul>-->
-                                        <!--                                                            <li>-->
-                                        <!--                                                                <img src="view/asset/images/content/ticket.png">-->
-                                        <!--                                                            </li>-->
-                                        <!--                                                            <li>-->
-                                        <!--                                                                <img src="view/asset/images/content/fast-food.png">-->
-                                        <!--                                                            </li>-->
-                                        <!--                                                        </ul>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                </div>-->
-                                        <!--                                                <div class="st_calen_asc_tecket_time_select">-->
-                                        <!--                                                    <ul>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">11:30 AM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">02:45 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">06:30 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                    </ul>-->
-                                        <!--                                                    <p class="asc_bottom_pera">Cancellation Available</p>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="st_calender_row_cont st_calender_row_cont2 float_left">-->
-                                        <!--                                                <div class="st_calender_asc">-->
-                                        <!--                                                    <div class="st_calen_asc_heart"><a href="#"> <i-->
-                                        <!--                                                                    class="fa fa-heart"></i></a>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                    <div class="st_calen_asc_heart_cont">-->
-                                        <!--                                                        <h3>Carnival: Mall Of Travancore-->
-                                        <!--                                                            (Red Carpet)</h3>-->
-                                        <!--                                                        <ul>-->
-                                        <!--                                                            <li>-->
-                                        <!--                                                                <img src="view/asset/images/content/ticket.png">-->
-                                        <!--                                                            </li>-->
-                                        <!--                                                            <li>-->
-                                        <!--                                                                <img src="view/asset/images/content/fast-food.png">-->
-                                        <!--                                                            </li>-->
-                                        <!--                                                        </ul>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                </div>-->
-                                        <!--                                                <div class="st_calen_asc_tecket_time_select">-->
-                                        <!--                                                    <ul>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">11:30 AM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                    </ul>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="st_calender_row_cont st_calender_row_cont2 float_left">-->
-                                        <!--                                                <div class="st_calender_asc">-->
-                                        <!--                                                    <div class="st_calen_asc_heart"><a href="#"> <i-->
-                                        <!--                                                                    class="fa fa-heart"></i></a>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                    <div class="st_calen_asc_heart_cont">-->
-                                        <!--                                                        <h3>Dhanya Remya: Trivandrum</h3>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                </div>-->
-                                        <!--                                                <div class="st_calen_asc_tecket_time_select">-->
-                                        <!--                                                    <ul>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">11:30 AM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">02:45 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">06:30 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                    </ul>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="st_calender_row_cont st_calender_row_cont2 float_left">-->
-                                        <!--                                                <div class="st_calender_asc">-->
-                                        <!--                                                    <div class="st_calen_asc_heart"><a href="#"> <i-->
-                                        <!--                                                                    class="fa fa-heart"></i></a>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                    <div class="st_calen_asc_heart_cont">-->
-                                        <!--                                                        <h3>JV Cinemas: Kattakkada</h3>-->
-                                        <!--                                                        <ul>-->
-                                        <!--                                                            <li>-->
-                                        <!--                                                                <img src="view/asset/images/content/ticket.png">-->
-                                        <!--                                                            </li>-->
-                                        <!--                                                        </ul>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                </div>-->
-                                        <!--                                                <div class="st_calen_asc_tecket_time_select">-->
-                                        <!--                                                    <ul>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">11:30 AM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">02:45 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">06:30 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                    </ul>-->
-                                        <!--                                                    <p class="asc_bottom_pera">Cancellation Available</p>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="st_calender_row_cont st_calender_row_cont2 float_left">-->
-                                        <!--                                                <div class="st_calender_asc">-->
-                                        <!--                                                    <div class="st_calen_asc_heart"><a href="#"> <i-->
-                                        <!--                                                                    class="fa fa-heart"></i></a>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                    <div class="st_calen_asc_heart_cont">-->
-                                        <!--                                                        <h3>MT Cineplex 4K Dolby-->
-                                        <!--                                                            ATMOS: Pothencode</h3>-->
-                                        <!--                                                        <ul>-->
-                                        <!--                                                            <li>-->
-                                        <!--                                                                <img src="view/asset/images/content/fast-food.png">-->
-                                        <!--                                                            </li>-->
-                                        <!--                                                        </ul>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                </div>-->
-                                        <!--                                                <div class="st_calen_asc_tecket_time_select">-->
-                                        <!--                                                    <ul>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">11:30 AM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">02:45 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">06:30 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                    </ul>-->
-                                        <!--                                                    <p class="asc_bottom_pera">Cancellation Available</p>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="st_calender_row_cont st_calender_row_cont2 float_left">-->
-                                        <!--                                                <div class="st_calender_asc">-->
-                                        <!--                                                    <div class="st_calen_asc_heart"><a href="#"> <i-->
-                                        <!--                                                                    class="fa fa-heart"></i></a>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                    <div class="st_calen_asc_heart_cont">-->
-                                        <!--                                                        <h3>SPI: Kripa Cinemas --->
-                                        <!--                                                            Mahathma Gandhi Road</h3>-->
-                                        <!--                                                        <ul>-->
-                                        <!--                                                            <li>-->
-                                        <!--                                                                <img src="view/asset/images/content/ticket.png">-->
-                                        <!--                                                            </li>-->
-                                        <!--                                                        </ul>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                </div>-->
-                                        <!--                                                <div class="st_calen_asc_tecket_time_select">-->
-                                        <!--                                                    <ul>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">11:30 AM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">02:45 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">06:30 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                    </ul>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="st_calender_row_cont st_calender_row_cont2 st_calender_row_cont_last float_left">-->
-                                        <!--                                                <div class="st_calender_asc">-->
-                                        <!--                                                    <div class="st_calen_asc_heart"><a href="#"> <i-->
-                                        <!--                                                                    class="fa fa-heart"></i></a>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                    <div class="st_calen_asc_heart_cont">-->
-                                        <!--                                                        <h3>Ganga Cine house-->
-                                        <!--                                                            4K Dolby Atmos: Attingal</h3>-->
-                                        <!--                                                        <ul>-->
-                                        <!--                                                            <li>-->
-                                        <!--                                                                <img src="view/asset/images/content/fast-food.png">-->
-                                        <!--                                                            </li>-->
-                                        <!--                                                        </ul>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                </div>-->
-                                        <!--                                                <div class="st_calen_asc_tecket_time_select">-->
-                                        <!--                                                    <ul>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">11:30 AM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">02:45 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                        <li>	<span>-->
-                                        <!--															<h4>Rs.160.00</h4>-->
-                                        <!--															<p class="asc_pera1">Executive</p>-->
-                                        <!--															<p class="asc_pera2">Filling Fast</p>-->
-                                        <!--															</span>-->
-                                        <!--                                                            <a href="?ctr=seat_booking">06:30 PM</a>-->
-                                        <!--                                                        </li>-->
-                                        <!--                                                    </ul>-->
-                                        <!--                                                    <p class="asc_bottom_pera">Cancellation Available</p>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -478,55 +116,6 @@
                     </div>
                 </div>
             </div>
-            <!--                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">-->
-            <!--                    <div class="prs_mcc_left_side_wrapper">-->
-            <!--                        <div class="prs_mcc_left_searchbar_wrapper">-->
-            <!--                            <input type="text" placeholder="Search Movie">-->
-            <!--                            <button><i class="flaticon-tool"></i>-->
-            <!--                            </button>-->
-            <!--                        </div>-->
-            <!--                        <div class="prs_mcc_bro_title_wrapper">-->
-            <!--                            <h2>browse title</h2>-->
-            <!--                            <ul>-->
-            <!--                                <li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">All-->
-            <!--                                        <span>23,124</span></a>-->
-            <!--                                </li>-->
-            <!--                                <li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Action-->
-            <!--                                        <span>512</span></a>-->
-            <!--                                </li>-->
-            <!--                                <li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Romantic-->
-            <!--                                        <span>548</span></a>-->
-            <!--                                </li>-->
-            <!--                                <li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Love-->
-            <!--                                        <span>557</span></a>-->
-            <!--                                </li>-->
-            <!--                                <li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Musical-->
-            <!--                                        <span>554</span></a>-->
-            <!--                                </li>-->
-            <!--                                <li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Drama-->
-            <!--                                        <span>567</span></a>-->
-            <!--                                </li>-->
-            <!--                                <li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Thriller-->
-            <!--                                        <span>689</span></a>-->
-            <!--                                </li>-->
-            <!--                                <li><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Horror-->
-            <!--                                        <span>478</span></a>-->
-            <!--                                </li>-->
-            <!--                            </ul>-->
-            <!--                        </div>-->
-            <!--                        <div class="prs_mcc_event_title_wrapper">-->
-            <!--                            <h2>Top Events</h2>-->
-            <!--                            <img src="view/asset/images/content/movie_category/event_img.jpg" alt="event_img">-->
-            <!--                            <h3><a href="#">Music Event in india</a></h3>-->
-            <!--                            <p>Pune <span><i class="fa fa-star"></i><i class="fa fa-star"></i><i-->
-            <!--                                            class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i-->
-            <!--                                            class="fa fa-star-o"></i></span>-->
-            <!--                            </p>-->
-            <!--                            <h4>June 07 <span>08:00-12:00 pm</span></h4>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-
         </div>
     </div>
 </div>
@@ -603,20 +192,38 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"
-        integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
-    function loadChiNhanh() {
+    $(document).ready(function () {
+        if ($(".nav-item").hasClass('active')) {
+            let ngay_chieu = $('.nav-item').attr('data-time');
+            let id_phim=$('.nav-link').attr('data-phim');
+            // console.log(ngay_chieu);
+            // console.log(id_phim);
+            loadChiNhanh(id_phim,ngay_chieu);
+        }
+        $('.nav-item').on('click', function () {
+            let ngay_chieu = $(this).attr('data-time');
+            let id_phim=$('.nav-link').attr('data-phim');
+            // console.log(ngay_chieu);
+            // console.log(id_phim);
+            loadChiNhanh(id_phim,ngay_chieu);
+        });
+    });
+</script>
+
+
+<script>
+    function loadChiNhanh(id_phim,ngay_chieu) {
         $.ajax({
-            url: '?ctr=get_time_day&id_phim=1&ngay=2022-11-24',
+            url: '?ctr=get_time_day&id_phim='+id_phim+'&ngay='+ngay_chieu,
             dataType: 'json',
             success: function (data) {
                 $('#time').html("");
                 for (i = 0; i < data.length; i++) {
                     var time = data[i];
                     var str = `
-                                            <div class="st_calender_row_cont ${i == 1 ? 'st_calender_row_cont2' : ''} float_left">
+                                            <div class="st_calender_row_cont ${i != 0 ? 'st_calender_row_cont2' : ''} float_left">
                                                 <div class="st_calender_asc" >
                                                     <div class="st_calen_asc_heart"><a href="#"> <i
                                                                     class="fa fa-heart"></i></a>
@@ -634,38 +241,27 @@
                                                     </div>
                                                 </div>
                                                 <div class="st_calen_asc_tecket_time_select" >
-                                                    <ul id=time_chi_nhanh>
+                                                    <ul id=time_chi_nhanh${i}>
 
                                                     </ul>
                                                 </div>
                                             </div>
                                          `;
-                    loadGioChieu(time['id_phim'], time['ngay_chieu'], time['id_chi_nhanh']);
+                    loadGioChieu(time['id_phim'], time['ngay_chieu'], time['id_chi_nhanh'],i);
                     // loadGioChieu();
                     $('#time').append(str);
                 }
-
-                // $('#time_chi_nhanh').html("");
-                // for (i = 0; i < data.length; i++) {
-                //     var time = data[i];
-                //     var cn = `
-                //             <li>
-                //                  <a href="?ctr=seat_booking&chi_nhanh=>${time['id_chi_nhanh']}&time=${time['gio_bat_dau']}">${time['gio_bat_dau']}</a>
-                //             </li>
-                //     `;
-                //     $('#time_chi_nhanh').append(cn);
-                // }
             }
         });
     }
 
-    function loadGioChieu(id_phim, ngay, chi_nhanh) {
+    function loadGioChieu(id_phim, ngay, chi_nhanh,k) {
         $.ajax({
             url: '?ctr=show_gio_chieu&id_phim=' + id_phim + '&ngay=' + ngay + '&chi_nhanh=' + chi_nhanh,
             // url: '?ctr=show_gio_chieu&id_phim=1&ngay=2022-11-24&chi_nhanh=1',
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                // console.log(data);
                 // $('#time_chi_nhanh').html("");
                 for (i = 0; i < data.length; i++) {
                     var time = data[i];
@@ -675,13 +271,13 @@
                             </li>
 
                     `;
-                    $('#time_chi_nhanh').append(str);
+                    $(`#time_chi_nhanh${k}`).append(str);
                 }
             }
         });
     }
 
-    loadChiNhanh();
+    // loadChiNhanh();
 
 </script>
 

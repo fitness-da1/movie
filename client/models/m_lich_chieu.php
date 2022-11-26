@@ -5,12 +5,11 @@ class m_lich_chieu extends database
 {
     public function show_lich_chieu($id_phim)
     {
-        $sql = "SELECT lc.id_phim,kgctn.gio_bat_dau,kgctn.ngay,cn.name,p.name
-                 FROM lich_chieu as lc 
-                 inner join khung_gio_chieu_trong_ngay as kgctn on lc.id_khung_gio_chieu_trong_ngay = kgctn.id
-                 inner join chi_nhanh as cn on lc.id_chi_nhanh=cn.id
-                 inner join phong as p on lc.id_phong=p.id
-            WHERE lc.id_phim =?";
+        $sql = "SELECT lc.ngay_chieu,ph.id as id_phim FROM lich_chieu as lc 
+                INNER JOIN phim_of_chi_nhanh as phfcn on lc.id_phim_of_chi_nhanh=phfcn.id 
+                INNER JOIN phim as ph on phfcn.id_phim=ph.id 
+                where ph.id=?
+                group by lc.ngay_chieu";
         $this->setQuery($sql);
         return $this->loadAllRows(array($id_phim));
     }
@@ -53,8 +52,9 @@ class m_lich_chieu extends database
     }
 
 
-    public function check_status_seat($id_lich_chieu){
-        $sql="SELECT ghe FROM ve where id_lich_chieu=?";
+    public function check_status_seat($id_lich_chieu)
+    {
+        $sql = "SELECT ghe FROM ve where id_lich_chieu=?";
         $this->setQuery($sql);
         return $this->loadAllRows(array($id_lich_chieu));
     }

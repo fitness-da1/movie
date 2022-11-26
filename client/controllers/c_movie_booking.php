@@ -5,7 +5,7 @@ class c_movie_booking{
         if (isset($_GET['id_phim'])) {
             $id_phim=$_GET['id_phim'];
             $phim=$m_lich_chieu->get_phim_by_id($id_phim);
-            $lich_chieu = $m_lich_chieu->show_lich_chieu($id_phim);
+            $ngay_chieu = $m_lich_chieu->show_lich_chieu($id_phim);
             include_once 'view/movie_booking.php';
         }
     }
