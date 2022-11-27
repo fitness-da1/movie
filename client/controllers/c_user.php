@@ -16,10 +16,11 @@ class c_user{
             $user=$m_user->read_user_by_email($email);
             if(isset($_SESSION['user'])) {
                 header('location:?ctr=home');
+                echo "<script>alert('Đăng nhập thành công')</script>";
             }
             else{
                 header('location:?ctr=home&loginfail&email='.$email);
-//                echo $admin;
+                echo "<script> alert('Sai tài khoản hoặc mật khẩu') </script>";
             }
         }
     }
@@ -71,7 +72,7 @@ class c_user{
                 $mail->addAddress($email);
                 $mail->isHTML(true);
                 $mail->Subject = "FORGOT PASSWORD";
-                $mail->Body = "Mật khẩu của bạn là ".$check->password;
+                $mail->Body = "Ấn vào link để đặt lại mật khẩu: http://localhost/moive1/client/?ctr=reset_password&id_user=".$check->id;
                 $mail->send();
                 echo "<script>
                             alert('Vui lòng kiểm tra email để lấy mật khẩu');
@@ -88,12 +89,17 @@ class c_user{
     }
 
     public function reset_password(){
-//        $m_user= new m_user();
-//        if (isset($_GET['id'])){
-//            $id=$_GET['id'];
-//            $m_user->reset_pass($id);
+        $m_user= new m_user();
+        if (isset($_GET['id_user'])){
+            $id=$_GET['id_user'];
+            if (isset($_POST['btn_reset'])) {
+                $password = $_POST['password'];
+                $m_user->reset_pass(md5($password),$id);
+                header("location:?ctr=home&resetpass=success");
+            }
             include_once 'view/reset_password.php';
-//        }
+        }
+
     }
 
 }

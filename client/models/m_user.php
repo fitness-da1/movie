@@ -18,4 +18,9 @@ class m_user extends database{
         $this->setQuery($sql);
         return $this->loadRow(array($email));
     }
+    function reset_pass($password,$id){
+        $sql="UPDATE user set password=? where id=?";
+        $this->setQuery($sql);
+        return $this->execute(array($password,$id));
+    }
 }
