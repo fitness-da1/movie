@@ -7,14 +7,14 @@ class c_admin_member
     {
         if (isset($_POST['btn_add_member'])) {
             $id = NULL;
-            $user_name = $_POST['username'];
-            $pass_word = $_POST['password'];
-            $full_name = $_POST['fullname'];
+            $password = $_POST['password'];
+            $fullname = $_POST['fullname'];
             $email = $_POST['email'];
-            $vai_tro = $_POST['vai_tro'];
+            $vai_tro = 0;
 
             $m_admin_member = new m_admin_member();
-            $result = $m_admin_member->insert_admin_member($id, $user_name, md5($pass_word), $full_name, $email, $vai_tro);
+            $result = $m_admin_member->insert_admin_member($id,$email, md5($password), $fullname,  $vai_tro);
+//            header('location:admin_member_add.php?result=' . $username);
         }
         include_once("view/admin_member/v_admin_member_add.php");
     }
@@ -41,10 +41,10 @@ class c_admin_member
         $m_admin_member = new m_admin_member();
         if (isset($_POST['btn_update_member'])) {
             $id = $_POST['id'];
-            $full_name = $_POST['full_name'];
+            $fullname = $_POST['fullname'];
             $email = $_POST['email'];
-            $vai_tro = $_POST['vai_tro'];
-            $m_admin_member->edit_admin_member($full_name, $email, $vai_tro, $id);
+            $password = $_POST['password'];
+            $m_admin_member->edit_admin_member($email,$fullname,md5($password), $id);
             header('location:?ctr=admin_member_list');
         }
 
@@ -70,9 +70,9 @@ class c_admin_member
         if(isset($_POST["btn_login"]))
         {
             $user_name=$_POST["user_name"];
-            $pass_word=$_POST["pass_word"];
+            $password=$_POST["password"];
             $m_admin_member=new m_admin_member();
-            $this->luu_dang_nhap($user_name,$pass_word);
+            $this->luu_dang_nhap($user_name,$password);
             $admin=$m_admin_member->read_admin_member_by_username($user_name);
             if(isset($_SESSION['user_admin'])) {
                 header('location:?ctr=home');
@@ -84,12 +84,12 @@ class c_admin_member
         }
     }
 
-    public function luu_dang_nhap($user_name,$pass_word)
+    public function luu_dang_nhap($user_name,$password)
     {
         session_start();
         $m_admin_member=new m_admin_member();
-        $admin = $m_admin_member->read_admin_member_by_id_pass($user_name,$pass_word);
-        if(!empty($admin)) {
+        $admin = $m_admin_member->read_admin_member_by_id_pass($user_name,$password);
+        if(!empty($admin)&&$admin->vai_tro==0) {
             $_SESSION['user_admin'] = $admin;
         }
     }

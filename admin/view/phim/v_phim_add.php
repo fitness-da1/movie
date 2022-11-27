@@ -10,25 +10,26 @@
                             <div class="form-group row">
                                 <label for="fname" class="col-sm-3 text-right control-label col-form-label">Tên phim</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Tên phim">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="fname" class="col-sm-3 text-right control-label col-form-label">Mô tả</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="description" name="description" placeholder="">
+<!--                                    <input type="text" class="form-control" id="description" name="description" placeholder="Mô tả">-->
+                                    <textarea name="description" id="description" cols="53" rows="10"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="fname" class="col-sm-3 text-right control-label col-form-label">Thời lượng</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="thoi_luong" name="thoi_luong" placeholder="">
+                                    <input type="text" class="form-control" id="thoi_luong" name="thoi_luong" placeholder="Thời lượng">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="fname" class="col-sm-3 text-right control-label col-form-label">Rate</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="rate" name="rate" placeholder="">
+                                    <input type="number" min="0" class="form-control" id="rate" name="rate" placeholder="Rate">
                                 </div>
                             </div>
                            
@@ -45,7 +46,13 @@
                             <div class="form-group row">
                                 <label for="post_content" class="col-sm-3 text-right control-label col-form-label">Ngày khởi chiếu</label>
                                 <div class="col-sm-9">
-                                <input type="date" class="form-control" id="ngay_khoi_chieu" name="ngay_khoi_chieu" placeholder="">
+                                <input type="date" class="form-control" id="ngay_khoi_chieu" name="ngay_khoi_chieu" placeholder="Ngày khởi chiếu">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="post_content" class="col-sm-3 text-right control-label col-form-label">Trailer link</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="trailer" name="trailer" placeholder="Trailer">
                                 </div>
                             </div>
                         </div>

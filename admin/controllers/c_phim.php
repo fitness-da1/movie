@@ -12,9 +12,10 @@ class c_phim
             $thoi_luong = $_POST['thoi_luong'];
             $rate = $_POST['rate'];
             $avatar = $_FILES['avatar']['name'];
-            $ngay_khoi_chieu = date('Y-m-d');
+            $ngay_khoi_chieu = date_format(date_create($_POST['ngay_khoi_chieu']),"Y-m-d");
+            $trailer=$_POST['trailer'];
             $m_phim = new m_phim();
-            $kq = $m_phim->insert_phim($id,$name, $description, $thoi_luong,$rate,$avatar,$ngay_khoi_chieu);
+            $kq = $m_phim->insert_phim($id,$name, $description, $thoi_luong,$rate,$avatar,$ngay_khoi_chieu,$trailer);
             if ($kq) {
                 if ($_FILES["image"]["error"] == 0) {
                     move_uploaded_file($_FILES["avatar"]["tmp_name"], "../public/image/$avatar");
@@ -54,13 +55,12 @@ class c_phim
             $description = $_POST['description'];
             $thoi_luong = $_POST['thoi_luong'];
             $rate = $_POST['rate'];
-            $avatar = $_FILES['avatar']['name'];
-            $ngay_khoi_chieu = date('Y-m-d');
-            
-            $avatar = !empty($_FILES['avatar']['name']) ? $_FILES['avatar']['name'] : $image->avata;
-            $kq = $m_phim->edit_phim($name, $description, $thoi_luong, $rate, $avatar,$ngay_khoi_chieu, $id);
+            $ngay_khoi_chieu = date_format(date_create($_POST['ngay_khoi_chieu']),"Y-m-d");
+            $trailer=$_POST['trailer'];
+            $avatar = !empty($_FILES['avatar']['name']) ? $_FILES['avatar']['name'] : $image->avatar;
+            $kq = $m_phim->edit_phim($name, $description, $thoi_luong,$rate,$avatar,$ngay_khoi_chieu,$trailer,$id);
             if ($kq) {
-                if ($_FILES["image"]["error"] == 0) {
+                if ($_FILES["avatar"]["error"] == 0) {
                     move_uploaded_file($_FILES["avatar"]["tmp_name"], "../public/image/$avatar");
                 }
                 header('location:?ctr=phim_list&add=success');

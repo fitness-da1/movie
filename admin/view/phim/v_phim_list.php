@@ -32,7 +32,7 @@
                                 <td><?= $value->ngay_khoi_chieu?></td>
                               
                                 <td>
-                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=blog_edit&id=<?=$value->id?>' ">Sửa</button>
+                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=phim_edit&id=<?=$value->id?>' ">Sửa</button>
                                     <button type="button" class="btn btn-primary" onclick="return confirm_delete('<?=$value->id?>','<?=$value->name?>') ">Xóa</button>
                                 </td>
                             </tr>

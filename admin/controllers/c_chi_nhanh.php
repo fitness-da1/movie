@@ -48,5 +48,37 @@ class c_chi_nhanh
             header('location:?ctr=chi_nhanh_list&dl=success');
         }
     }
+    public function add_film_of_chi_nhanh(){
+        $m_chi_nhanh = new m_chi_nhanh();
+        $m_phim= new m_phim();
+        $chi_nhanh=$m_chi_nhanh->read_chi_nhanh();
+        $phim=$m_phim->read_phim();
+        include_once 'view/chi_nhanh/v_add_film_of_chi_nhanh.php';
+        if (isset($_POST['btn_add_phim_cn'])){
+            $id=null;
+            $id_phim=$_POST['id_phim'];
+            $id_chi_nhanh=$_POST['id_chi_nhanh'];
+            foreach ($id_phim as $id_ph) {
+                $m_chi_nhanh->add_film_of_chi_nhanh($id, $id_ph, $id_chi_nhanh);
+            }
+        }
+    }
+    public function ds_phim_cn(){
+        $m_chi_nhanh = new m_chi_nhanh();
+        if (isset($_GET['id'])){
+            $id=$_GET['id'];
+            $phim=$m_chi_nhanh->list_film_of_chi_nhanh($id);
+            include_once 'view/chi_nhanh/v_list_phim_of_chi_nhanh.php';
+        }
+    }
+    public function dl_phim_cn(){
+        $m_chi_nhanh = new m_chi_nhanh();
+        if (isset($_GET['id'])){
+            $id=$_GET['id'];
+            $m_chi_nhanh->delete_phim_of_chi_nhanh($id);
+            header('location: ?ctr=chi_nhanh_list');
+        }
+    }
+
 
 }

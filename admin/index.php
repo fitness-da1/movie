@@ -169,6 +169,30 @@ switch ($ctr) {
             $error = new c_404_error();
         }
         break;
+    case 'add_film_chi_nhanh':
+        if (isset($_SESSION['user_admin'])) {
+            $film = new c_chi_nhanh();
+            $film->add_film_of_chi_nhanh();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
+        case 'list_film_of_chi_nhanh':
+            if (isset($_SESSION['user_admin'])) {
+                $film_of_cn = new c_chi_nhanh();
+                $film_of_cn->ds_phim_cn();
+            } else {
+                $error = new c_404_error();
+            }
+            break;
+    case 'phim_cn_delete':
+        if (isset($_SESSION['user_admin'])) {
+            $phim_cn = new c_chi_nhanh();
+            $phim_cn->dl_phim_cn();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
  // phim
  case 'phim_add':
     if (isset($_SESSION['user_admin'])) {

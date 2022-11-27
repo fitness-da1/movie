@@ -1,17 +1,16 @@
-<?php include_once '././view/layout/header.php'; ?>
+<?php include_once 'view/layout/header.php'; ?>
 
 <div class="page-wrapper">
     <div class="container-fluid">
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Basic Datatable</h5>
+                <h5 class="card-title">Danh sách chi nhánh</h5>
                 <div class="table-responsive">
                     <table id="zero_config" class="table table-striped table-bordered">
                         <thead>
                             <tr>
                             <tr>
-                               
                                 <th>Chi nhánh</th>
                                 <th>Action</th>
                             </tr>
@@ -24,13 +23,13 @@
                                 <td>
                                     <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=chi_nhanh_edit&id=<?=$value->id?>' ">Sửa</button>
                                     <button type="button" class="btn btn-primary" onclick="return confirm_delete('<?=$value->id?>','<?=$value->name?>') ">Xóa</button>
+                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=list_film_of_chi_nhanh&id=<?=$value->id?>' ">Danh sách phim</button>
                                 </td>
                             </tr>
                         <?php endforeach;?>
                         </tbody>
                         <tfoot>
                             <tr>
-                             
                                 <th>Chi nhánh</th>
                                 <th>Action</th>
                             </tr>
@@ -65,4 +64,4 @@
     }
 </script>
 
-<?php include_once '././view/layout/footer.php'; ?>
+<?php include_once 'view/layout/footer.php'; ?>
