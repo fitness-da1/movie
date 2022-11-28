@@ -200,6 +200,8 @@
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="?ctr=phim_add" class="sidebar-link"><i class="fa-solid fa-user-plus"></i><span class="hide-menu"> Thêm phim </span></a></li>
                                 <li class="sidebar-item"><a href="?ctr=phim_list" class="sidebar-link"><i class="fa-solid fa-list"></i></i><span class="hide-menu"> Danh sách phim </span></a></li>
+                                <li class="sidebar-item"><a href="?ctr=" class="sidebar-link"><i class="fa-solid fa-list"></i></i><span class="hide-menu"> Phim - Chi nhánh </span></a></li>
+
                             </ul>
                         </li>
 

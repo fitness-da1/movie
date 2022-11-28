@@ -26,7 +26,7 @@ class c_user{
 
     public function luu_dang_nhap($email,$password)
     {
-        session_start();
+        // session_start();
         $m_user=new m_user();
         $user = $m_user->read_user_by_email_pass($email,$password);
         if(!empty($user)) {

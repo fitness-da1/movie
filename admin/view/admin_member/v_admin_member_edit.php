@@ -12,19 +12,11 @@
                                         value="<?= $admin_member ->id ?>" hidden>
 
                                 <div class="form-group row">
-                                    <label for="username"
-                                           class="col-sm-3 text-right control-label col-form-label">Username</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="username" name="username"
-                                               placeholder=" Username Here" value="<?= $admin_member ->user_name ?>" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
                                     <label for="password"
                                            class="col-sm-3 text-right control-label col-form-label">Password</label>
                                     <div class="col-sm-9">
                                         <input type="password" class="form-control" id="password" name="password"
-                                               placeholder="Password Here" value="<?=$admin_member->pass_word?>" disabled>
+                                               placeholder="Password Here" value="<?=$admin_member->password?>" disabled>
                                     </div>
                                 </div>
                                 <div class="form-group row">

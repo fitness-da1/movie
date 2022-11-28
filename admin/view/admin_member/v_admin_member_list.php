@@ -10,7 +10,7 @@
                         <table id="zero_config" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th>Username</th>
+                                
                                 <th>Full name</th>
                                 <th>Email</th>
                                 <th>Role</th>
@@ -24,7 +24,6 @@
                             foreach ($admin_member as $key => $value) { ?>
 
                             <tr>
-                                <td><?= $value->user_name ?></td>
                                 <td><?= $value->full_name ?></td>
                                 <td><?= $value->email ?></td>
                                 <td><?= $value->vai_tro==0?'Admin':'' ?></td>
@@ -41,7 +40,7 @@
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th>Username</th>
+                              
                                 <th>Full name</th>
                                 <th>Email</th>
                                 <th>Role</th>
