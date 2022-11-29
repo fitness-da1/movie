@@ -1,54 +1,4 @@
-<!--<!DOCTYPE html>-->
 
-<!--Template Name: Movie Pro-->
-<!--Version: 1.0.0-->
-<!--Author: Webstrot-->
-<!---->
-<!---->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<!--<html lang="zxx">-->
-<!--[endif]-->
-<!---->
-<!--<head>-->
-<!--	<meta charset="utf-8" />-->
-<!--	<title>Movie Pro Responsive HTML Template</title>-->
-<!--	<meta content="width=device-width, initial-scale=1.0" name="viewport" />-->
-<!--	<meta name="description" content="Movie Pro" />-->
-<!--	<meta name="keywords" content="Movie Pro" />-->
-<!--	<meta name="author" content="" />-->
-<!--	<meta name="MobileOptimized" content="320" />-->
-	<!--Template style -->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/animate.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/bootstrap.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/font-awesome.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/fonts.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/flaticon.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/owl.carousel.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/owl.theme.default.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/dl-menu.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/nice-select.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/magnific-popup.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/venobox.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/js/plugin/rs_slider/layers.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/js/plugin/rs_slider/navigation.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/js/plugin/rs_slider/settings.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="view/css/seat.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/style.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="asset/css/responsive.css" />-->
-<!--	<link rel="stylesheet" id="theme-color" type="text/css" href="#"/>-->
-	<!-- favicon links -->
-<!--	<link rel="shortcut icon" type="image/png" href="asset/images/header/favicon.ico" />-->
-<!--</head>-->
-<!---->
-<!--<body class="booking_type_back">-->
-	<!-- preloader Start -->
-<!--	<div id="preloader">-->
-<!--		<div id="status">-->
-<!--			<img src="asset/images/header/horoscope.gif" id="preloader_image" alt="loader">-->
-<!--		</div>-->
-<!--	</div>-->
 <?php
 if (isset($_SESSION['ve'])){
     include_once("view/layout/header.php");
@@ -154,13 +104,16 @@ if (isset($_SESSION['ve'])){
 
 							</div>
                             <div class="check-out" >
-                                <form action="?ctr=add_ticket" method="post">
+<!--                                <form action="?ctr=thanh_toan_momo" method="post">-->
+<!--                                    <button name="momo_qr" class="btn btn-primary" style="margin-top: 1em !important; width: 100%">Thanh toán QR Momo</button>-->
+<!--                                    <button name="momo_atm" class="btn btn-primary" style="margin-top: 1em !important; width: 100%">Thanh toán ATM Momo</button>-->
+<!--                                </form>-->
+                                <form action="?ctr=thanh_toan_vnpay" method="post">
                                     <input type="text" name="id_lich_chieu" value="<?=$_SESSION['ve']['lich_chieu']?>" hidden>
-                                    <input type="text" name="id_khach_hang" value="1" hidden>
+                                    <input type="text" name="id_khach_hang" value="<?=$_SESSION['user']->id?>" hidden>
                                     <input type="text" name="gia_ve" value="<?=($_SESSION['ve']['so_luong_ghe']*50000)+($_SESSION['ve']['so_luong_ghe']*50000*0.05)?>" hidden>
                                     <input type="text" name="ghe" value="<?=$_SESSION['ve']['ghe']?>" hidden>
-
-                                <button name="btn_check_out" class="btn btn-primary" style="margin-top: 1em !important; width: 100%">Thanh toán</button>
+                                    <button name="redirect" class="btn btn-primary" style="margin-top: 1em !important; width: 100%">Thanh toán bằng VNPAY</button>
                                 </form>
                             </div>
 						</div>

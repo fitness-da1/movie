@@ -9,6 +9,7 @@ include_once 'controllers/c_ve.php';
 include_once 'controllers/c_phim.php';
 include_once 'controllers/c_phong.php';
 include_once 'controllers/c_404_error.php';
+include_once 'controllers/c_lich_chieu.php';
 //models
 include_once("models/m_the_loai.php");
 include_once("models/m_khung_gio_chieu.php");
@@ -17,6 +18,8 @@ include_once("models/m_admin_member.php");
 include_once("models/m_ve.php");
 include_once("models/m_phim.php");
 include_once("models/m_phong.php");
+include_once("models/m_lich_chieu.php");
+include_once("models/m_home.php");
 $ctr = isset($_GET['ctr']) ? $_GET['ctr'] : '/';
 session_start();
 switch ($ctr) {
@@ -193,6 +196,14 @@ switch ($ctr) {
             $error = new c_404_error();
         }
         break;
+        case 'read_lich_chieu':
+            if (isset($_SESSION['user_admin'])) {
+                $read_lich_chieu = new c_chi_nhanh();
+                $read_lich_chieu->read_lich_chieu();
+            } else {
+                $error = new c_404_error();
+            }
+            break;
  // phim
  case 'phim_add':
     if (isset($_SESSION['user_admin'])) {
@@ -234,6 +245,23 @@ case 'phim_update':
         $error = new c_404_error();
     }
     break;
+    //lịch chiếu
+    case 'lich_chieu_add':
+        if (isset($_SESSION['user_admin'])) {
+            $lich_chieu_add = new c_lich_chieu();
+            $lich_chieu_add->lich_chieu_add();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
+    case 'load_phim_of_chi_nhanh':
+        if (isset($_SESSION['user_admin'])) {
+            $load_phim_of_chi_nhanh = new c_lich_chieu();
+            $load_phim_of_chi_nhanh->load_phim_of_chi_nhanh();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
     default:
         $error = new c_404_error();
         $error->show_404_error();

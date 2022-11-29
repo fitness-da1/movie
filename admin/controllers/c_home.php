@@ -1,9 +1,11 @@
 <?php
+
 class c_home
 {
-    public function index(){
-//        $m_admin_member = new m_admin_member();
-//        $admin_member = $m_admin_member->read_admin_member();
-        include_once ("view/v_index.php");
+    public function index()
+    {
+        $m_home = new m_home();
+        $doanh_thu = $m_home->read_doanh_thu();
+        include_once("view/v_index.php");
     }
 }

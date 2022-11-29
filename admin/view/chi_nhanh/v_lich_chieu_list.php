@@ -5,34 +5,42 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Danh sách chi nhánh</h5>
+                <h5 class="card-title">Lịch chiếu</h5>
                 <div class="table-responsive">
                     <table id="zero_config" class="table table-striped table-bordered">
                         <thead>
                             <tr>
                             <tr>
-                                <th>Chi nhánh</th>
-                                <th>Action</th>
+<!--                               <th>ID</th>-->
+                                <th>Ngày chiếu</th>
+                                <th>Phim</th>
+                                <th>Giờ bắt đầu</th>
+                                <th>Phòng</th>
+<!--                                <th>Action</th>-->
                             </tr>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($chi_nhanh as $item => $value): ?>
+                        <?php foreach ($lich_chieu as $item => $value): ?>
                             <tr>
-                                <td><?= $value->name?></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=chi_nhanh_edit&id=<?=$value->id?>' ">Sửa</button>
-                                    <button type="button" class="btn btn-primary" onclick="return confirm_delete('<?=$value->id?>','<?=$value->name?>') ">Xóa</button>
-                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=list_film_of_chi_nhanh&id=<?=$value->id?>' ">Danh sách phim</button>
-                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=read_lich_chieu&id=<?=$value->id?>' ">Danh sách lịch chiếu</button>
-                                </td>
+                                <td><?= $value->ngay_chieu?></td>
+                                <td><?= $value->ten_phim?></td>
+                                <td><?= $value->gio_bat_dau?></td>
+                                <td><?= $value->ten_phong?></td>
+<!--                                <td>-->
+<!--                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=the_loai_edit&id=' ">Sửa</button>-->
+
+<!--                                </td>-->
                             </tr>
                         <?php endforeach;?>
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>Chi nhánh</th>
-                                <th>Action</th>
+                        <tr>
+                            <th>Ngày chiếu</th>
+                            <th>Phim</th>
+                            <th>Giờ bắt đầu</th>
+                            <th>Phòng</th>
+<!--                            <th>Action</th>-->
                             </tr>
                         </tfoot>
                     </table>
@@ -58,11 +66,11 @@
      ****************************************/
     $('#zero_config').DataTable();
 
-    function confirm_delete(id,name){
-        if(confirm('Bạn chắc chắn muốn xóa chi nhánh'+name)){
-            window.open('?ctr=the_loai_delete&id='+id,'_self');
-        }
-    }
+    // function confirm_delete(id,name){
+    //     if(confirm('Bạn chắc chắn muốn xóa thể loại '+name)){
+    //         window.open('?ctr=the_loai_delete&id='+id,'_self');
+    //     }
+    // }
 </script>
 
 <?php include_once 'view/layout/footer.php'; ?>

@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="./view/assets/images/favicon.png">
-    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <title>User Info</title>
     <!-- Custom CSS -->
     <!-- <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet"> -->
     <!-- Custom CSS -->
@@ -125,7 +125,7 @@
 <!--                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>-->
 <!--                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>-->
                                 <div class="dropdown-divider dropdown-"></div>
-                                <a class="dropdown-item" href="http://localhost/moive1/client/">
+                                <a class="dropdown-item" href="http://localhost/movie/client/">
                                     <i class="ti-settings m-r-5 m-l-5"></i> Về trang chủ</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="?ctr=logout"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>

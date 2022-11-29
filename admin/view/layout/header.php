@@ -178,17 +178,17 @@
 
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-light fa-list"></i><span class="hide-menu">Lịch chiếu</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="?ctr=user_add" class="sidebar-link"><i class="fa-solid fa-user-plus"></i><span class="hide-menu"> Thêm lịch chiếu </span></a></li>
-                                <li class="sidebar-item"><a href="?ctr=user_list" class="sidebar-link"><i class="fa-solid fa-list"></i></i><span class="hide-menu"> Danh sách Lịch chiếu </span></a></li>
+                                <li class="sidebar-item"><a href="?ctr=lich_chieu_add" class="sidebar-link"><i class="fa-solid fa-user-plus"></i><span class="hide-menu"> Thêm lịch chiếu </span></a></li>
+                                <li class="sidebar-item"><a href="?ctr=lich_chieu_list" class="sidebar-link"><i class="fa-solid fa-list"></i></i><span class="hide-menu"> Danh sách Lịch chiếu </span></a></li>
                             </ul>
                         </li>
 
 
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-file-invoice-dollar"></i><span class="hide-menu">Quản lý hóa đơn</span></a>
-                            <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="?ctr=ve_list" class="sidebar-link"><i class="fa-solid fa-list"></i><span class="hide-menu"> Danh sách hóa đơn </span></a></li>
-                            </ul>
-                        </li>
+<!--                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-file-invoice-dollar"></i><span class="hide-menu">Quản lý hóa đơn</span></a>-->
+<!--                            <ul aria-expanded="false" class="collapse  first-level">-->
+<!--                                <li class="sidebar-item"><a href="?ctr=ve_list" class="sidebar-link"><i class="fa-solid fa-list"></i><span class="hide-menu"> Danh sách hóa đơn </span></a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
 
 
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-film"></i><span class="hide-menu">Thể loại phim</span></a>

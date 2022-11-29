@@ -181,7 +181,7 @@ if (!empty($seat_close)) {
                                 <span style="color: white">: Ghế đang chọn</span>
                             </div>
                             <div class="status" style="display: flex;margin: 1em;">
-                                <div style="width: 20px;height: 20px;border: 1px solid gray;margin-right: 5px;background-color: #4d4f5c;"></div>
+                                <div style="width: 20px;height: 20px;border: 1px solid gray;margin-right: 5px;background-color: #ff3131;"></div>
                                 <span style="color: white">: Ghế đã được chọn</span>
                             </div>
                         </div>
@@ -206,7 +206,7 @@ if (!empty($seat_close)) {
                                     <li class="st_seat_heading_row"><?= $item ?></li>
                                     <?php foreach ($value as $key => $st): ?>
                                         <ul>
-                                            <li class="<?php if (!empty($close)) echo in_array($st, $close) == true ? 'seat_disable' : '' ?>">
+                                            <li class="<?php if (!empty($close)) echo in_array($st, $close) == true ? 'seat_disable' : '' ?>" >
                                                 <input type="checkbox" id="<?= $st ?>" name="seat[]" value="<?= $st ?>"
                                                        class="seat">
                                                 <label for="<?= $st ?>"></label>

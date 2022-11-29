@@ -72,7 +72,7 @@ class c_user{
                 $mail->addAddress($email);
                 $mail->isHTML(true);
                 $mail->Subject = "FORGOT PASSWORD";
-                $mail->Body = "Ấn vào link để đặt lại mật khẩu: http://localhost/moive1/client/?ctr=reset_password&id_user=".$check->id;
+                $mail->Body = "Ấn vào link để đặt lại mật khẩu: http://localhost/movie/client/?ctr=reset_password&id_user=".$check->id;
                 $mail->send();
                 echo "<script>
                             alert('Vui lòng kiểm tra email để lấy mật khẩu');

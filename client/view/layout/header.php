@@ -108,7 +108,7 @@ Author: Webstrot
                         <?=$_SESSION['user']->full_name?> <i class="fa-solid fa-caret-down"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
-                        <a class="dropdown-item" href="http://localhost/moive1/client/user/">Thông tin tài khoản</a>
+                        <a class="dropdown-item" href="http://localhost/movie/client/user/">Thông tin tài khoản</a>
                         <a class="dropdown-item" href="?ctr=logout">Logout</a>
                     </div>
                 </div>

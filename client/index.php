@@ -7,11 +7,14 @@ include_once("controllers/c_movie_booking.php");
 include_once("controllers/c_seat_booking.php");
 include_once("controllers/c_movie_detail.php");
 include_once("controllers/c_user.php");
+include_once("controllers/c_payment.php");
 include_once("models/m_home.php");
 include_once('models/m_lich_chieu.php');
 include_once('models/m_ticket.php');
 include_once('models/m_phim.php');
 include_once('models/m_user.php');
+include_once('models/m_payment.php');
+date_default_timezone_set("Asia/Bangkok");
 $ctr = isset($_GET['ctr']) ? $_GET['ctr'] : '/';
 session_start();
 switch ($ctr) {
@@ -57,10 +60,10 @@ switch ($ctr) {
         $seat_booking=new c_seat_booking();
         $seat_booking->seat_booking();
         break;
-    case 'add_ticket':
-        $add_ticket=new c_booking_type();
-        $add_ticket->add_ticket();
-        break;
+//    case 'add_ticket':
+//        $add_ticket=new c_booking_type();
+//        $add_ticket->add_ticket();
+//        break;
     case 'login':
         $login = new c_user();
         $login->login();
@@ -68,10 +71,6 @@ switch ($ctr) {
     case 'logout':
         $logout= new c_user();
         $logout->logout();
-        break;
-    case 'show_info':
-        $show_info= new c_user();
-        $show_info->show_info();
         break;
     case 'signup':
         $signup= new c_user();
@@ -83,6 +82,18 @@ switch ($ctr) {
     case 'reset_password':
         $reset_pass=new  c_user();
         $reset_pass->reset_password();
+        break;
+//    case 'thanh_toan_momo':
+//        $momo=new  c_payment();
+//        $momo->thanh_toan_momo();
+//        break;
+//    case 'thanh_toan_onepay':
+//        $onepay=new  c_payment();
+//        $onepay->thanh_toan_onepay();
+//        break;
+    case 'thanh_toan_vnpay':
+        $vnpay=new  c_payment();
+        $vnpay->thanh_toan_vnpay();
         break;
     default:
 //        $error = new c_404_error();

@@ -74,8 +74,9 @@
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 prs_upcom_slide_first">
                                                     <div class="prs_upcom_movie_box_wrapper prs_mcc_movie_box_wrapper">
                                                         <div class="prs_upcom_movie_img_box">
-                                                            <img src="view/asset/images/content/movie_category/up1.jpg"
-                                                                 alt="movie_img"/>
+<!--                                                            <img src="view/asset/images/content/movie_category/up1.jpg"-->
+<!--                                                                 alt="movie_img"/>-->
+                                                            <img src="../public/image/<?=$fl->avatar?>" alt=image>
                                                             <div class="prs_upcom_movie_img_overlay"></div>
                                                             <div class="prs_upcom_movie_img_btn_wrapper">
                                                                 <ul>

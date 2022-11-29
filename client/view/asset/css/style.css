@@ -8965,10 +8965,12 @@ border: 1px solid #4d4f5c;
 	border: 1px solid #f3c600;
 }
 .seat_disable input[type="checkbox"] + label:before{
-	background: #4d4f5c;
+	/*background: #4d4f5c;*/
+	background: #ff3131;
 }
 .seat_disable input[type="checkbox"] + label:after{
-	background:#4d4f5c;
+	/*background:#4d4f5c;*/
+	background: #ff3131;
 }
 .seat_disable input[type="checkbox"]:checked + label:after {
 	background:#4d4f5c;

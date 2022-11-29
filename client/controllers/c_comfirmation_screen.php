@@ -1,11 +1,36 @@
 <?php
 class c_comfirmation_screen{
     public function show_comfirmation_screen(){
-        if (isset($_GET['ve'])){
-            $id=$_GET['ve'];
-            $m_ticket=new m_ticket();
-            $ve=$m_ticket->show_ticket_booking($id);
-            include_once 'view/confirmation_screen.php';
+
+        $id_ve=uniqid('ticket_',false);
+        include_once 'view/confirmation_screen.php';
+        $m_payment= new m_payment();
+        $m_ticket = new m_ticket();
+        if (isset($_GET['vnp_ResponseCode'])&&$_GET['vnp_ResponseCode']==0){
+//           start tbl vnpay
+            $id=null;
+            $vnp_Amount=$_GET['vnp_Amount'];
+            $vnp_BankCode=$_GET['vnp_BankCode'];
+            $vnp_BankTranNo=$_GET['vnp_BankTranNo'];
+            $vnp_CardType=$_GET['vnp_CardType'];
+            $vnp_OrderInfo=$_GET['vnp_OrderInfo'];
+            $vnp_PayDate=$_GET['vnp_PayDate'];
+            $vnp_TmnCode=$_GET['vnp_TmnCode'];
+            $vnp_TransactionNo=$_GET['vnp_TransactionNo'];
+
+            $m_payment->insert_tbl_vnpay($id,$vnp_Amount,$vnp_BankCode,$vnp_BankTranNo,$vnp_CardType,$vnp_OrderInfo,$vnp_PayDate,$vnp_TmnCode,$vnp_TransactionNo);
+//            end tbl vnpay
+
+//            start ve
+
+            $id_lich_chieu=$_SESSION['ve']['lich_chieu'];
+            $id_khach_hang=$_SESSION['user']->id;
+            $gia_ve=($_SESSION['ve']['so_luong_ghe']*50000)+($_SESSION['ve']['so_luong_ghe']*50000*0.05);
+            $ngay_dat=date("Y-m-d H:i:s");
+            $ghe=$_SESSION['ve']['ghe'];
+            $m_ticket->insert_ticket_booking($id_ve,$id_lich_chieu,$id_khach_hang,$gia_ve,$ngay_dat,$ghe,$vnp_TransactionNo);
+            unset($_SESSION['ve']);
+//            end ve
         }
     }
 }

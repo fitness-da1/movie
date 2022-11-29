@@ -26,8 +26,6 @@ class m_lich_chieu extends database
         $this->setQuery($sql);
         return $this->loadAllRows(array($id_phim, $ngay));
     }
-//INNER JOIN khung_gio_chieu as kgc on pfkgc.id_khung_gio_chieu=kgc.id
-//INNER JOIN phong as p on pfkgc.id_phong=p.id
 
     public function show_gio_chieu($id_phim, $ngay, $chi_nhanh)
     {
