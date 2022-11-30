@@ -119,6 +119,7 @@ if (!empty($seat_close)) {
         <input type="text" name="ten_phim" value="<?= $info->ten_phim ?>" hidden>
         <input type="text" name="id_lich_chieu" value="<?= $info->id ?>" hidden>
         <input type="text" name="chi_nhanh" value="<?= $info->ten_chi_nhanh ?>" hidden>
+        <input type="text" name="image_phim" value="<?= $info->image_phim ?>" hidden>
         <div class="st_bt_top_header_wrapper float_left">
             <div class="container container_seat">
                 <div class="row">
@@ -163,7 +164,9 @@ if (!empty($seat_close)) {
         <div class="st_seatlayout_main_wrapper float_left">
             <div class="container container_seat">
                 <div class="st_seat_lay_heading float_left">
+                    <h3 style="color: red" <?=isset($_GET['error_book_seat'])?'':'hidden'?> >Lỗi chọn ghế vui lòng chọn lại</h3>
                     <h3>Ariesplex SL Cinemas</h3>
+
                 </div>
                 <div class="st_seat_full_container">
                     <div class="st_seat_lay_economy_wrapper float_left">
@@ -224,6 +227,45 @@ if (!empty($seat_close)) {
             </div>
         </div>
     </form>
+    <div class="st_bt_top_header_wrapper float_left">
+        <div class="container container_seat">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="st_bt_top_back_btn st_bt_top_back_btn_seatl float_left"><a
+                                href="?ctr=movie_booking&id_phim=<?= $info->id_phim ?>"><i
+                                    class="fas fa-long-arrow-alt-left"></i> &nbsp;Back</a>
+                    </div>
+                    <div class="cc_ps_quantily_info cc_ps_quantily_info_tecket">
+                        <!--						<p>Select Ticket</p>-->
+                        <div class="select_number">
+                            <!--												<button onclick="changeQty(1); return false;" class="increase"><i class="fa fa-plus"></i>-->
+                            <!--												</button>-->
+                            <!--												<input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />-->
+                            <!--												<button onclick="changeQty(0); return false;" class="decrease"><i class="fa fa-minus"></i>-->
+                            <!--												</button>-->
+                        </div>
+                        <input type="hidden" name="product_id"/>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="st_bt_top_center_heading st_bt_top_center_heading_seat_book_page float_left">
+                        <h3>Tên phim: <?= $info->ten_phim ?></h3>
+                        <h4>Ngày chiếu: <?= $info->ngay_chieu ?> | Giờ chiếu: <?= $info->gio_bat_dau ?> |
+                            Phòng: <?= $info->ten_phong ?></h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <!--                    <div class="st_bt_top_close_btn st_bt_top_close_btn2 float_left"><a href="#"><i-->
+                    <!--                                    class="fa fa-times"></i></a>-->
+                    <!--                    </div>-->
+                    <div class="st_seatlay_btn float_left">
+                        <!--                            <a href="?ctr=booking_type">Proceed to Pay</a>-->
+                        <button type="submit" name="btn_proceed" class="btn btn-primary">Proceed to Pay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- st seat Layout End -->
     <!--main js file start-->
 <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"-->

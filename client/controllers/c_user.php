@@ -49,8 +49,13 @@ class c_user{
                 $password=$_POST['password'];
                 $full_name=$_POST['full_name'];
                 $vai_tro=1;
+                $kq=$m_user->read_user_by_email($email);
+                if(!empty($kq)){
+                    header('location:?ctr=home&signup=fail&email_da_ton_tai');
+                }else{
                 $m_user->insert_user($id,$email,md5($password),$full_name,$vai_tro);
                 header('location:?ctr=home&signup=success');
+                }
             }
     }
     public function forgot_password(){

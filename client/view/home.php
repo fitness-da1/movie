@@ -131,8 +131,8 @@
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="prs_mcc_list_movie_main_wrapper">
                                                         <div class="prs_mcc_list_movie_img_wrapper">
-                                                            <img src="view/asset/images/content/movie_category/up1.jpg"
-                                                                 alt="categoty_img">
+                                                            <img src="../public/image/<?=$fl->avatar?>"
+                                                                 alt="categoty_img" height="360">
                                                         </div>
                                                         <div class="prs_mcc_list_movie_img_cont_wrapper">
                                                             <div class="prs_mcc_list_left_cont_wrapper">

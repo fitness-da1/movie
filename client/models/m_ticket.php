@@ -25,7 +25,7 @@ class m_ticket extends database{
 //    }
 
     public function show_info_phong_chieu($lich_chieu){
-        $sql="SELECT lc.*,ph.name as ten_phim,ph.id as id_phim,cn.name as ten_chi_nhanh,kgc.gio_bat_dau,p.name as ten_phong FROM lich_chieu as lc 
+        $sql="SELECT lc.*,ph.name as ten_phim,ph.id as id_phim,ph.avatar as image_phim,cn.name as ten_chi_nhanh,kgc.gio_bat_dau,p.name as ten_phong FROM lich_chieu as lc 
                 INNER JOIN phim_of_chi_nhanh as phfcn on lc.id_phim_of_chi_nhanh=phfcn.id 
                 INNER JOIN phim as ph on phfcn.id_phim=ph.id 
                 INNER JOIN chi_nhanh as cn on phfcn.id_chi_nhanh=cn.id 

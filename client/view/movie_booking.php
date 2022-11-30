@@ -1,4 +1,5 @@
-<?php include_once 'view/layout/header.php' ?>
+<?php include_once 'view/layout/header.php';
+?>
 <!-- prs navigation End -->
 <!-- prs title wrapper Start -->
 <div class="prs_title_main_sec_wrapper">

@@ -14,7 +14,7 @@ include_once('models/m_ticket.php');
 include_once('models/m_phim.php');
 include_once('models/m_user.php');
 include_once('models/m_payment.php');
-date_default_timezone_set("Asia/Bangkok");
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 $ctr = isset($_GET['ctr']) ? $_GET['ctr'] : '/';
 session_start();
 switch ($ctr) {
