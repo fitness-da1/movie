@@ -4,7 +4,8 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Basic Datatable</h5>
+                    <button class="btn btn-primary" onclick="location.href='?ctr=chi_nhanh_list'">Trở lại danh sách chi nhánh</button>
+                    <h5 class="card-title" style="margin-top: 1em">Danh sách phim của chi nhánh</h5>
                     <div class="table-responsive">
                         <table id="zero_config" class="table table-striped table-bordered">
                             <thead>

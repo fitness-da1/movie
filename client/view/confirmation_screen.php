@@ -6,7 +6,9 @@ $vnp_HashSecret = "EPUYZYYKQDKNAYDJKKHJWWLWDUKLULBS"; //Secret key
 $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
 $vnp_Returnurl = "http://localhost/movie/client/?ctr=confirmation_screen";
 //end config payment
-$vnp_SecureHash = $_GET['vnp_SecureHash'];
+if (isset($_GET['vnp_SecureHash'])) {
+    $vnp_SecureHash = $_GET['vnp_SecureHash'];
+}
 $inputData = array();
 foreach ($_GET as $key => $value) {
     if (substr($key, 0, 4) == "vnp_") {
@@ -60,14 +62,17 @@ $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
 
 
                             <?php
-                            if ($secureHash == $vnp_SecureHash) {
+                            if (isset($vnp_SecureHash)&&$secureHash == $vnp_SecureHash) {
                                 if ($_GET['vnp_ResponseCode'] == '00') {
                                     echo "<i class='fa fa-check-circle'></i><h3><span style='color:green'>Thanh toán thành công </span><span>".number_format(($_SESSION['ve']['so_luong_ghe']*50000)+($_SESSION['ve']['so_luong_ghe']*50000*0.05))." VNĐ</span></h3>";
                                 } else {
                                     echo "<i class='fa-solid fa-circle-xmark' style='color: red !important;'></i><h3><span style='color:red'>Thanh toán không thành công </span>".number_format(($_SESSION['ve']['so_luong_ghe']*50000)+($_SESSION['ve']['so_luong_ghe']*50000*0.05))." VNĐ</span></h3>";
                                 }
+                            }elseif (isset($_GET['pay_type'])&&$_GET['pay_type']=='cash'){
+                                echo "<i class='fa fa-check-circle'></i><h3><span style='color:green'>Đặt chỗ thành công. <br> </span><span>Vui lòng thanh toán ".number_format(($_SESSION['ve']['so_luong_ghe']*50000)+($_SESSION['ve']['so_luong_ghe']*50000*0.05))." VNĐ tại quầy vé trước giờ chiếu 30 phút</span></h3>";
+
                             } else {
-                                echo "<span style='color:red'>Chu ky khong hop le</span>";
+                                echo "<i class='fa-solid fa-circle-xmark' style='color: red !important;'></i><span style='color:red'>Chu ky khong hop le</span>";
                             }
                             ?>
                         </div>
@@ -110,8 +115,9 @@ $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
                             </div>
                         </div>
                         <div class="st_bcc_ticket_boxes_bottom_wrapper float_left">
-                            <p>You can access your ticket from your Profile. We will send you
-                                <br>an e-Mail/SMS Confirmation with in 15 Minutes.</p>
+                            <p>Vui lòng kiểm tra thông tin vé trong phần thông tin người dùng</p>
+<!--                                We will send you-->
+<!--                                <br>an e-Mail/SMS Confirmation with in 15 Minutes.</p>-->
                         </div>
                     </div>
                 </div>

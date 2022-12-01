@@ -2,6 +2,7 @@
 <?php
 if (isset($_SESSION['ve'])){
     include_once("view/layout/header.php");
+    echo mt_srand(8);
 ?>
 	<!-- color picker start -->
 	<!-- st top header Start -->
@@ -105,7 +106,8 @@ if (isset($_SESSION['ve'])){
 							</div>
                             <div class="check-out" >
 <!--                                <form action="?ctr=thanh_toan_momo" method="post">-->
-<!--                                    <button name="momo_qr" class="btn btn-primary" style="margin-top: 1em !important; width: 100%">Thanh toán QR Momo</button>-->
+                                    <button name="momo_qr" class="btn btn-primary" style="margin-top: 1em !important; width: 100%"
+                                            onclick="location.href='?ctr=confirmation_screen&pay_type=cash'">Thanh toán tại quầy (Đặt chỗ)</button>
 <!--                                    <button name="momo_atm" class="btn btn-primary" style="margin-top: 1em !important; width: 100%">Thanh toán ATM Momo</button>-->
 <!--                                </form>-->
                                 <form action="?ctr=thanh_toan_vnpay" method="post">

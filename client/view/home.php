@@ -1,12 +1,13 @@
 <?php include_once 'view/layout/header.php' ?>
     <!-- prs navigation End -->
     <!-- prs mc slider wrapper Start -->
+    <div id="toast"></div>
     <div class="prs_mc_slider_main_wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="prs_heading_section_wrapper">
-                        <h2>Comming soon</h2>
+                        <h2>Sắp chiếu</h2>
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -54,7 +55,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="prs_mcc_right_side_heading_wrapper">
-                                    <h2>Our Top Movies</h2>
+                                    <h2>Danh sách phim</h2>
                                     <ul class="nav nav-pills">
                                         <li class="active"><a data-toggle="pill" href="#grid"><i
                                                         class="fa fa-th-large"></i></a>
@@ -80,11 +81,10 @@
                                                             <div class="prs_upcom_movie_img_overlay"></div>
                                                             <div class="prs_upcom_movie_img_btn_wrapper">
                                                                 <ul>
-                                                                    <li><a href="<?= $fl->trailer ?>">View Trailer</a>
+                                                                    <li><a href="<?= $fl->trailer ?>">Trailer</a>
                                                                     </li>
                                                                     <li>
-                                                                        <a href="?ctr=movie_detail&id_phim=<?= $fl->id ?>">View
-                                                                            Details</a>
+                                                                        <a href="?ctr=movie_detail&id_phim=<?= $fl->id ?>">Chi tiết</a>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -160,11 +160,10 @@
                                                             <div class="prs_mcc_list_bottom_cont_wrapper">
                                                                 <p><?= $fl->description ?></p>
                                                                 <ul>
-                                                                    <li><a href="#">View Trailer</a>
+                                                                    <li><a href="#">Trailer</a>
                                                                     </li>
                                                                     <li>
-                                                                        <a href="?ctr=movie_detail&id_phim=<?= $fl->id ?>">View
-                                                                            Details</a>
+                                                                        <a href="?ctr=movie_detail&id_phim=<?= $fl->id ?>">Chi tiết</a>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -463,4 +462,91 @@
 <!--    </div>-->
     <!-- prs Newsletter Wrapper End -->
     <!-- prs footer Wrapper Start -->
+
+<!--    getParameterByName in url-->
+    <script type="text/javascript">
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    </script>
+    <!--    getParameterByName in url-->
+
+    <script>// Toast function
+        function toast({ title = "", message = "", type = "info", duration = 3000 }) {
+            const main = document.getElementById("toast");
+            if (main) {
+                const toast = document.createElement("div");
+
+                // Auto remove toast
+                const autoRemoveId = setTimeout(function () {
+                    main.removeChild(toast);
+                }, duration + 1000);
+
+                // Remove toast when clicked
+                toast.onclick = function (e) {
+                    if (e.target.closest(".toast__close")) {
+                        main.removeChild(toast);
+                        clearTimeout(autoRemoveId);
+                    }
+                };
+
+                const icons = {
+                    success: "fas fa-check-circle",
+                    info: "fas fa-info-circle",
+                    warning: "fas fa-exclamation-circle",
+                    error: "fas fa-exclamation-circle"
+                };
+                const icon = icons[type];
+                const delay = (duration / 1000).toFixed(2);
+
+                toast.classList.add("toast", `toast--${type}`);
+                toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`;
+
+                toast.innerHTML = `
+                    <div class="toast__icon">
+                        <i class="${icon}"></i>
+                    </div>
+                    <div class="toast__body">
+                        <h3 class="toast__title">${title}</h3>
+                        <p class="toast__msg">${message}</p>
+                    </div>
+                    <div class="toast__close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                `;
+                main.appendChild(toast);
+            }
+        }
+
+        function showSuccessToast() {
+            toast({
+                title: "Thành công!",
+                message: "Bạn đã đăng ký thành công tài khoản tại MOVIE PRO.",
+                type: "success",
+                duration: 5000
+            });
+        }
+
+        function showErrorToast() {
+            toast({
+                title: "Thất bại!",
+                message: "Đăng kí không thành công.",
+                type: "error",
+                duration: 5000
+            });
+        }
+        var message = getParameterByName('signup');
+        if (message=='fail'){
+            showErrorToast();
+            // console.log(111);
+        }else if (message=='success') {
+            showSuccessToast();
+        }
+    </script>
 <?php include_once 'view/layout/footer.php' ?>

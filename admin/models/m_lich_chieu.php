@@ -22,6 +22,19 @@ class m_lich_chieu extends database{
         $this->setQuery($sql);
         return $this->loadAllRows(array($chi_nhanh));
     }
-}
 
+    public function read_phong_of_gio_chieu(){
+        $sql="SELECT pfkgc.id, p.name as ten_phong,kgc.gio_bat_dau as gio_chieu FROM phong_of_khung_gio_chieu as pfkgc
+                inner join phong as p on pfkgc.id_phong=p.id
+                inner join khung_gio_chieu as kgc on pfkgc.id_khung_gio_chieu=kgc.id";
+        $this->setQuery($sql);
+        return $this->loadAllRows();
+    }
+
+    public function insert_lich_chieu($id,$chi_nhanh,$ngay_chieu,$gio_chieu){
+        $sql="INSERT INTO lich_chieu VALUES (?,?,?,?)";
+        $this->setQuery($sql);
+        return $this->execute(array($id,$chi_nhanh,$ngay_chieu,$gio_chieu));
+    }
+}
 ?>

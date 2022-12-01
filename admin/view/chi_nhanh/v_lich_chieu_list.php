@@ -5,7 +5,8 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Lịch chiếu</h5>
+                <button class="btn btn-primary" onclick="location.href='?ctr=chi_nhanh_list'">Trở lại danh sách chi nhánh</button>
+                <h5 class="card-title" style="margin-top: 1em">Lịch chiếu</h5>
                 <div class="table-responsive">
                     <table id="zero_config" class="table table-striped table-bordered">
                         <thead>
@@ -16,7 +17,7 @@
                                 <th>Phim</th>
                                 <th>Giờ bắt đầu</th>
                                 <th>Phòng</th>
-<!--                                <th>Action</th>-->
+                                <th>Action</th>
                             </tr>
                             </tr>
                         </thead>
@@ -27,10 +28,10 @@
                                 <td><?= $value->ten_phim?></td>
                                 <td><?= $value->gio_bat_dau?></td>
                                 <td><?= $value->ten_phong?></td>
-<!--                                <td>-->
-<!--                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=the_loai_edit&id=' ">Sửa</button>-->
+                                <td>
+                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=load_ve_of_lich_chieu&id=<?=$value->id?>&id_cn=<?=$_GET['id']?>' ">Danh sách vé</button>
 
-<!--                                </td>-->
+                                </td>
                             </tr>
                         <?php endforeach;?>
                         </tbody>
@@ -40,7 +41,7 @@
                             <th>Phim</th>
                             <th>Giờ bắt đầu</th>
                             <th>Phòng</th>
-<!--                            <th>Action</th>-->
+                            <th>Action</th>
                             </tr>
                         </tfoot>
                     </table>

@@ -8,11 +8,11 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="prs_title_heading_wrapper">
-                    <h2>Movie Booking</h2>
+                    <h2>Đặt vé</h2>
                     <ul>
-                        <li><a href="?ctr=home">Home</a>
+                        <li><a href="?ctr=home">Phim</a>
                         </li>
-                        <li>&nbsp;&nbsp; >&nbsp;&nbsp; Movie Booking</li>
+                        <li>&nbsp;&nbsp; >&nbsp;&nbsp; Đặt vé</li>
                     </ul>
                 </div>
             </div>
@@ -172,23 +172,23 @@
 </div>
 <!-- prs patner slider End -->
 <!-- prs Newsletter Wrapper Start -->
-<div class="prs_newsletter_wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                <div class="prs_newsletter_text">
-                    <h3>Get update sign up now !</h3>
-                </div>
-            </div>
-            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                <div class="prs_newsletter_field">
-                    <input type="text" placeholder="Enter Your Email">
-                    <button type="submit">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="prs_newsletter_wrapper">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">-->
+<!--                <div class="prs_newsletter_text">-->
+<!--                    <h3>Get update sign up now !</h3>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">-->
+<!--                <div class="prs_newsletter_field">-->
+<!--                    <input type="text" placeholder="Enter Your Email">-->
+<!--                    <button type="submit">Submit</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="

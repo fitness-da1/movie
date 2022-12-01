@@ -189,7 +189,7 @@ class c_payment
         $vnp_HashSecret = "EPUYZYYKQDKNAYDJKKHJWWLWDUKLULBS"; //Secret key
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
         $vnp_Returnurl = "http://localhost/movie/client/?ctr=confirmation_screen";
-        $vnp_apiUrl = " https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+//        $vnp_apiUrl = " https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
 //Config input format
 //Expire
         $startTime = date("YmdHis");

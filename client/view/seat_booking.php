@@ -126,7 +126,7 @@ if (!empty($seat_close)) {
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="st_bt_top_back_btn st_bt_top_back_btn_seatl float_left"><a
                                     href="?ctr=movie_booking&id_phim=<?= $info->id_phim ?>"><i
-                                        class="fas fa-long-arrow-alt-left"></i> &nbsp;Back</a>
+                                        class="fas fa-long-arrow-alt-left"></i> &nbsp;Trở lại</a>
                         </div>
                         <div class="cc_ps_quantily_info cc_ps_quantily_info_tecket">
                             <!--						<p>Select Ticket</p>-->
@@ -153,7 +153,7 @@ if (!empty($seat_close)) {
                         <!--                    </div>-->
                         <div class="st_seatlay_btn float_left">
                             <!--                            <a href="?ctr=booking_type">Proceed to Pay</a>-->
-                            <button type="submit" name="btn_proceed" class="btn btn-primary">Proceed to Pay</button>
+                            <button type="submit" name="btn_proceed" class="btn btn-primary">Thanh toán</button>
                         </div>
                     </div>
                 </div>
@@ -165,7 +165,7 @@ if (!empty($seat_close)) {
             <div class="container container_seat">
                 <div class="st_seat_lay_heading float_left">
                     <h3 style="color: red" <?=isset($_GET['error_book_seat'])?'':'hidden'?> >Lỗi chọn ghế vui lòng chọn lại</h3>
-                    <h3>Ariesplex SL Cinemas</h3>
+                    <h3>Chi nhánh <?= $info->ten_chi_nhanh ?></h3>
 
                 </div>
                 <div class="st_seat_full_container">
@@ -226,14 +226,14 @@ if (!empty($seat_close)) {
                 </div>
             </div>
         </div>
-    </form>
+
     <div class="st_bt_top_header_wrapper float_left">
         <div class="container container_seat">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="st_bt_top_back_btn st_bt_top_back_btn_seatl float_left"><a
                                 href="?ctr=movie_booking&id_phim=<?= $info->id_phim ?>"><i
-                                    class="fas fa-long-arrow-alt-left"></i> &nbsp;Back</a>
+                                    class="fas fa-long-arrow-alt-left"></i> &nbsp;Trở lại</a>
                     </div>
                     <div class="cc_ps_quantily_info cc_ps_quantily_info_tecket">
                         <!--						<p>Select Ticket</p>-->
@@ -260,12 +260,13 @@ if (!empty($seat_close)) {
                     <!--                    </div>-->
                     <div class="st_seatlay_btn float_left">
                         <!--                            <a href="?ctr=booking_type">Proceed to Pay</a>-->
-                        <button type="submit" name="btn_proceed" class="btn btn-primary">Proceed to Pay</button>
+                        <button type="submit" name="btn_proceed" class="btn btn-primary">Thanh toán </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </form>
     <!-- st seat Layout End -->
     <!--main js file start-->
 <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"-->

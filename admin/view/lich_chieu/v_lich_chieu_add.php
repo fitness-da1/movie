@@ -27,7 +27,7 @@
                                     <label class="col-sm-3 text-right control-label col-form-label ">Chọn phim</label>
                                     <div class="col-md-9">
                                         <select class="select2 form-control custom-select required chi_nhanh"
-                                                style="width: 100%; height:36px;" name="id_phim_of_chi_nhanh"
+                                                style="width: 100%; height:36px;" name="id_phim"
                                                 id="phim">
                                                 <option value="">Chọn phim</option>
                                         </select>
@@ -40,10 +40,24 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group row">
+                                    <label class="col-sm-3 text-right control-label col-form-label ">Chọn giờ chiếu - phòng</label>
+                                    <div class="col-md-9">
+                                        <select class="select2 form-control custom-select required chi_nhanh"
+                                                style="width: 100%; height:36px;" name="gio_chieu"
+                                                onchange="loadphim()">
+                                            <option value="">Giờ chiếu-Phòng</option>
+                                            <?php foreach ($gio_chieu as $gc): ?>
+                                                <option value="<?= $gc->id ?>"><?= $gc->gio_chieu ?> - <?= $gc->ten_phong ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="border-top">
                                 <div class="card-body">
-                                    <button type="submit" class="btn btn-primary" name="btn_add_lich_chieu_cn">Thêm</button>
+                                    <button type="submit" class="btn btn-primary" name="btn_add_lich_chieu">Thêm</button>
                                     <!--                                    <button type="button" class="btn btn-primary" onclick="location.href='?ctr=chi_nhanh_list'">Danh sách</button>-->
                                 </div>
                             </div>

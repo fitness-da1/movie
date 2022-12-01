@@ -58,4 +58,24 @@ class m_chi_nhanh extends database
         $this->setQuery($sql);
         return $this->execute(array($id));
     }
+    public function list_ve_of_lich_chieu($id){
+        $sql="SELECT ve.id,ve.pay_status,ve.type_pay,kh.full_name as ten_khach_hang,ve.ghe,lc.ngay_chieu,ph.name as ten_phim,cn.name as ten_chi_nhanh,kgc.gio_bat_dau,p.name as ten_phong FROM ve
+                INNER JOIN lich_chieu as lc on lc.id=ve.id_lich_chieu
+                INNER JOIN phim_of_chi_nhanh as phfcn on lc.id_phim_of_chi_nhanh=phfcn.id 
+                INNER JOIN phim as ph on phfcn.id_phim=ph.id 
+                INNER JOIN chi_nhanh as cn on phfcn.id_chi_nhanh=cn.id 
+                INNER JOIN phong_of_khung_gio_chieu as pfkgc on lc.Id_phong_of_khung_gio_chieu=pfkgc.id 
+                INNER JOIN khung_gio_chieu as kgc on pfkgc.id_khung_gio_chieu=kgc.id
+                INNER JOIN phong as p on pfkgc.id_phong=p.id
+                INNER JOIN user as kh on kh.id=ve.id_khach_hang
+                WHERE lc.id=?
+                order by ve.ngay_dat";
+        $this->setQuery($sql);
+        return $this->loadAllRows(array($id));
+    }
+    public function edit_ve_of_lich_chieu($id){
+        $sql="UPDATE ve SET pay_status=0 where id=?";
+        $this->setQuery($sql);
+        return $this->execute(array($id));
+    }
 }

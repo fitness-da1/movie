@@ -262,6 +262,22 @@ case 'phim_update':
             $error = new c_404_error();
         }
         break;
+    case 'load_ve_of_lich_chieu':
+        if (isset($_SESSION['user_admin'])) {
+            $load_ve_of_lich_chieu = new c_chi_nhanh();
+            $load_ve_of_lich_chieu->read_ve_lich_chieu();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
+    case 'update_status_pay':
+        if (isset($_SESSION['user_admin'])) {
+            $update_status_pay = new c_chi_nhanh();
+            $update_status_pay->update_ve_lich_chieu();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
     default:
         $error = new c_404_error();
         $error->show_404_error();

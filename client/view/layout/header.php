@@ -36,15 +36,15 @@ Author: Webstrot
     <link rel="stylesheet" type="text/css" href="view/asset/js/plugin/rs_slider/layers.css"/>
     <link rel="stylesheet" type="text/css" href="view/asset/js/plugin/rs_slider/navigation.css"/>
     <link rel="stylesheet" type="text/css" href="view/asset/js/plugin/rs_slider/settings.css"/>
-    <link rel="stylesheet" type="text/css" href="view/asset/js/multicheck/multicheck.css"/>
+<!--    <link rel="stylesheet" type="text/css" href="view/asset/js/multicheck/multicheck.css"/>-->
     <link rel="stylesheet" type="text/css" href="view/asset/css/style.css"/>
-<!--    <link rel="stylesheet" type="text/css" href="view/asset/css/style1.min.css"/>-->
+<!--    <link rel="stylesheet" type="text/css" href="view/asset/css/style.min.css"/>-->
     <link rel="stylesheet" type="text/css" href="view/asset/css/responsive.css"/>
-    <link rel="stylesheet" type="text/css" href="view/asset/css/datatables.net-bs4/css/dataTables.bootstrap4.css"/>
+<!--    <link rel="stylesheet" type="text/css" href="view/asset/css/datatables.net-bs4/css/dataTables.bootstrap4.css"/>-->
 
-    <link href="view/asset/css/jqueryStep/jquery.steps.css" rel="stylesheet">
-    <link href="view/asset/css/jqueryStep/steps.css" rel="stylesheet">
-    <link rel="stylesheet" id="theme-color" type="text/css" href="#"/>
+<!--    <link href="view/asset/css/jqueryStep/jquery.steps.css" rel="stylesheet">-->
+<!--    <link href="view/asset/css/jqueryStep/steps.css" rel="stylesheet">-->
+<!--    <link rel="stylesheet" id="theme-color" type="text/css" href="#"/>-->
     <!-- favicon links -->
     <link rel="shortcut icon" type="image/png" href="view/asset/images/header/favicon.ico"/>
 </head>
@@ -81,8 +81,8 @@ Author: Webstrot
                         </div>
                         <div class="clearfix"></div>
                         <ul class="dl-menu">
-                            <li class="parent"><a href="?ctr=home">Movie</a></li>
-                            <li class="parent"><a href="?ctr=contact">contact</a></li>
+                            <li class="parent"><a href="?ctr=home">Phim</a></li>
+                            <li class="parent"><a href="?ctr=contact">Liên hệ</a></li>
                         </ul>
                     </div>
                     <!-- /dl-menuwrapper -->
@@ -97,7 +97,7 @@ Author: Webstrot
                 <div class="prs_animate_btn1">
                     <ul>
                         <li><a href="#" class="button button--tamaya" data-text="Login" data-toggle="modal"
-                               data-target="#myModal"><span>Login</span></a>
+                               data-target="#myModal"><span>Đăng nhập</span></a>
                         </li>
                     </ul>
                 </div>
@@ -105,11 +105,11 @@ Author: Webstrot
             <div class="prs_top_login_btn_wrapper" style="display: <?=isset($_SESSION['user'])?'block':'none'?>">
                 <div class="dropdown">
                     <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?=$_SESSION['user']->full_name?> <i class="fa-solid fa-caret-down"></i>
+                        <?=$_SESSION['user']->full_name?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
                         <a class="dropdown-item" href="http://localhost/movie/client/user/">Thông tin tài khoản</a>
-                        <a class="dropdown-item" href="?ctr=logout">Logout</a>
+                        <a class="dropdown-item" href="?ctr=logout">Đăng xuất</a>
                     </div>
                 </div>
             </div>

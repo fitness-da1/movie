@@ -76,8 +76,8 @@
                          <!-- Logo text -->
                         <span class="logo-text">
                              <!-- dark Logo text -->
-                             <img src="./view/assets/images/logo-text.png" alt="homepage" class="light-logo" />
-                            
+<!--                             <img src="./view/assets/images/logo-text.png" alt="homepage" class="light-logo" />-->
+                            <h5>Thông tin khách hàng</h5>
                         </span>
                         <!-- Logo icon -->
                         <!-- <b class="logo-icon"> -->
@@ -154,7 +154,7 @@
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?ctr=home" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Thông tin tài khoản</span></a></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?ctr=ve_list" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Lịch sử mua hàng</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?ctr=ve_list" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Danh sách vé đã mua</span></a></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

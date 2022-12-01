@@ -97,5 +97,24 @@ class c_chi_nhanh
             include_once 'view/chi_nhanh/v_lich_chieu_list.php';
         }
     }
+    public function read_ve_lich_chieu(){
+        $m_lich_chieu = new m_chi_nhanh();
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $ve = $m_lich_chieu->list_ve_of_lich_chieu($id);
+            include_once 'view/chi_nhanh/v_list_ve_of_lich_chieu.php';
+        }
+    }
+    public function update_ve_lich_chieu(){
+        $m_lich_chieu = new m_chi_nhanh();
+        if (isset($_GET['id_ve'])) {
+            $id = $_GET['id_ve'];
+            $id_lc=$_GET['id_lc'];
+            $id_cn=$_GET['id_cn'];
+           $m_lich_chieu->edit_ve_of_lich_chieu($id);
+//            include_once 'view/chi_nhanh/v_list_ve_of_lich_chieu.php';
+            header('location: ?ctr=load_ve_of_lich_chieu&id='.$id_lc.'&id_cn='.$id_cn);
+        }
+    }
 
 }
