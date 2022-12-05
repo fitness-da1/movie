@@ -42,7 +42,7 @@ class m_admin_member extends database
         $this->setQuery($sql);
         return $this->loadRow(array($email, md5($password)));
     }
-    function read_admin_member_by_username($email)
+    function read_admin_member_by_email($email)
     {
         $sql = "SELECT * from user where email=?";
         $this->setQuery($sql);

@@ -6,7 +6,7 @@
                     <div class="card">
                         <form class="form-horizontal" id="example-form" action="" method="post">
                             <div class="card-body">
-                                <h4 class="card-title">Personal Info</h4>
+                                <h4 class="card-title">Thêm quản trị viên</h4>
                                 <!--                                <div class="form-group row">-->
                                 <!--                                    <label for="username"-->
                                 <!--                                           class="col-sm-3 text-right control-label col-form-label ">Username</label>-->
@@ -20,7 +20,8 @@
                                            class="col-sm-3 text-right control-label col-form-label ">Email</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control required email" id="email" name="email"
-                                               placeholder="Email Here">
+                                               placeholder="Email Here" <?= isset($error)?'value='.$email:'' ?> >
+
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -29,7 +30,7 @@
                                     <div class="col-sm-9">
                                         <input type="password" class="form-control required" id="password"
                                                name="password"
-                                               placeholder="Password Here">
+                                               placeholder="Password Here" >
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -37,10 +38,10 @@
                                         Name</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control required" id="fullname" name="fullname"
-                                               placeholder="Full Name Here">
+                                               placeholder="Full Name Here" <?= isset($error)?'value='.$fullname:'' ?> >
                                     </div>
                                 </div>
-
+                                <span class="text-danger" <?= !isset($error)?'hidden':'' ?> ><?php echo $error; ?></span>
 
                                 <!--                                <div class="form-group row">-->
                                 <!--                                    <label class="col-sm-3 text-right control-label col-form-label ">Vai trò</label>-->

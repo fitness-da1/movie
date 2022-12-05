@@ -16,6 +16,11 @@ class m_the_loai extends database {
         $this->setQuery($sql);
         return $this->loadRow(array($id));
     }
+    public function read_the_loai_by_name($name) {
+        $sql = "SELECT * from the_loai where name=?";
+        $this->setQuery($sql);
+        return $this->loadRow(array($name));
+    }
     public function edit_the_loai($name,$id) {
         $sql = "UPDATE the_loai set name = ? where id = ?";
         $this->setQuery($sql);

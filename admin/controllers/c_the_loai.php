@@ -4,11 +4,18 @@ class c_the_loai
 {
     public function the_loai_add()
     {
+        $m_the_loai = new m_the_loai();
         if (isset($_POST['btn_add_the_loai'])) {
             $id = NULL;
             $name = $_POST['name'];
-            $m_the_loai = new m_the_loai();
-            $result = $m_the_loai->insert_the_loai($id, $name);
+            $kq=$m_the_loai->read_the_loai_by_name($name);
+            if (!$kq && trim($name) != '') {
+                $result = $m_the_loai->insert_the_loai($id, $name);
+            } elseif (trim($name) == '') {
+                $error = 'Vui lòng điền đầy đủ thông tin!';
+            } else {
+                $error = "Tên thể loại đã tồn tại";
+            }
         }
         include_once("view/the_loai/v_the_loai_add.php");
     }

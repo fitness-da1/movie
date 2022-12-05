@@ -20,7 +20,13 @@ class c_seat_booking
         $_SESSION['ve'] = [];
         $m_lich_chieu = new m_lich_chieu();
         if (isset($_POST['btn_proceed'])) {
-            $seat = $_POST['seat'];
+            if (!empty($_POST['seat'])){
+                $seat = $_POST['seat'];
+            }else{
+                $seat = [];
+                $flag=true;
+            }
+
             $lich_chieu = $_POST['id_lich_chieu'];
             $seat_close = $m_lich_chieu->check_status_seat($lich_chieu);
             foreach ($seat_close as $value) {

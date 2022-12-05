@@ -3,7 +3,7 @@ require_once 'database.php';
 class m_home extends database {
     public function get_film()
     {
-        $sql="SELECT *from phim";
+        $sql="SELECT *from phim where status=0";
         $this->setQuery($sql);
         return $this->loadAllRows();
     }

@@ -4,20 +4,15 @@ include_once 'controllers/c_home.php';
 include_once 'controllers/c_admin_member.php';
 include_once 'controllers/c_the_loai.php';
 include_once 'controllers/c_chi_nhanh.php';
-include_once 'controllers/c_khung_gio_chieu.php';
-include_once 'controllers/c_ve.php';
 include_once 'controllers/c_phim.php';
-include_once 'controllers/c_phong.php';
 include_once 'controllers/c_404_error.php';
 include_once 'controllers/c_lich_chieu.php';
 //models
 include_once("models/m_the_loai.php");
-include_once("models/m_khung_gio_chieu.php");
 include_once("models/m_chi_nhanh.php");
 include_once("models/m_admin_member.php");
 include_once("models/m_ve.php");
 include_once("models/m_phim.php");
-include_once("models/m_phong.php");
 include_once("models/m_lich_chieu.php");
 include_once("models/m_home.php");
 $ctr = isset($_GET['ctr']) ? $_GET['ctr'] : '/';
@@ -245,6 +240,14 @@ case 'phim_update':
         $error = new c_404_error();
     }
     break;
+    case 'phim_active':
+        if (isset($_SESSION['user_admin'])) {
+            $phim_active = new c_phim();
+            $phim_active->active_phim();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
     //lịch chiếu
     case 'lich_chieu_add':
         if (isset($_SESSION['user_admin'])) {
@@ -273,7 +276,15 @@ case 'phim_update':
     case 'update_status_pay':
         if (isset($_SESSION['user_admin'])) {
             $update_status_pay = new c_chi_nhanh();
-            $update_status_pay->update_ve_lich_chieu();
+            $update_status_pay->active_pay_ve_lich_chieu();
+        } else {
+            $error = new c_404_error();
+        }
+        break;
+    case 'edit_ve_lich_chieu':
+        if (isset($_SESSION['user_admin'])) {
+            $edit_ve = new c_chi_nhanh();
+            $edit_ve->edit_ve_lich_chieu();
         } else {
             $error = new c_404_error();
         }

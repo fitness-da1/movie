@@ -9,9 +9,10 @@
                             <h4 class="card-title">Thêm Thể loại phim</h4>
 
                             <div class="form-group row">
-                                <label for="fname" class="col-sm-3 text-right control-label col-form-label">Tên Thể loại</label>
+                                <label for="name" class="col-sm-3 text-right control-label col-form-label">Tên Thể loại</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="uname" name="name" placeholder=" Username Here">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder=" Tên Thể loại" <?= isset($error)?'value='.$name:'' ?>>
+                                    <span class="text-danger" <?= !isset($error)?'hidden':'' ?> ><?php echo $error; ?></span>
                                 </div>
                             </div>
                             

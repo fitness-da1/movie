@@ -5,15 +5,22 @@ class c_admin_member
 {
     public function admin_member_add()
     {
+        $m_admin_member = new m_admin_member();
         if (isset($_POST['btn_add_member'])) {
             $id = NULL;
             $password = $_POST['password'];
             $fullname = $_POST['fullname'];
             $email = $_POST['email'];
             $vai_tro = 0;
-
-            $m_admin_member = new m_admin_member();
-            $result = $m_admin_member->insert_admin_member($id,$email, md5($password), $fullname,  $vai_tro);
+            $admin=$m_admin_member->read_admin_member_by_email($email);
+            if (!$admin&&trim($password)!=''&&trim($fullname)!=''&&trim($email)!='') {
+                $m_admin_member->insert_admin_member($id, $email, md5($password), $fullname, $vai_tro);
+                echo "<script>alert('Thêm thành công!');</script>";
+            }elseif (trim($password)==''||trim($fullname)==''||trim($email)=='') {
+                $error='Vui lòng điền đầy đủ thông tin!';
+            } else {
+                $error = "Email đã tồn tại";
+            }
 //            header('location:admin_member_add.php?result=' . $username);
         }
         include_once("view/admin_member/v_admin_member_add.php");
@@ -73,7 +80,7 @@ class c_admin_member
             $password=$_POST["password"];
             $m_admin_member=new m_admin_member();
             $this->luu_dang_nhap($user_name,$password);
-            $admin=$m_admin_member->read_admin_member_by_username($user_name);
+            $admin=$m_admin_member->read_admin_member_by_email($user_name);
             if(isset($_SESSION['user_admin'])) {
                 header('location:?ctr=home');
             }

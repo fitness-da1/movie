@@ -37,7 +37,10 @@
                                     <td><?= $value->type_pay==0?'Online':'Tiền mặt' ?></td>
                                     <td><span style="color: <?= $value->pay_status==0?'green':'orange' ?>"><?= $value->pay_status==0?'Đã thanh toán':'Chờ thanh toán' ?></span></td>
                                     <td> <img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=<?= $value->id ?>&choe=UTF-8"  alt="qr"/></td>
-                                    <td><button class="btn btn-danger" <?= $value->pay_status==0?'hidden':' ' ?> onclick="location.href='?ctr=update_status_pay&id_ve=<?=$value->id?>&id_lc=<?=$_GET['id']?>&id_cn=<?=$_GET['id_cn']?>'">Xác nhận thanh toán</button></td>
+                                    <td>
+                                        <button class="btn btn-warning" onclick="location.href='?ctr=edit_ve_lich_chieu&id=<?=$value->id?>&id_cn=<?=$_GET['id_cn']?>&id_lc=<?=$_GET['id']?>'" style="margin-bottom: 0.5em">Sửa</button><br>
+                                        <button class="btn btn-danger" <?= $value->pay_status==0?'hidden':' ' ?> onclick="location.href='?ctr=update_status_pay&id_ve=<?=$value->id?>&id_lc=<?=$_GET['id']?>&id_cn=<?=$_GET['id_cn']?>'">Xác nhận thanh toán</button>
+                                    </td>
                                 </tr>
                             <?php } ?>
                             </tbody>

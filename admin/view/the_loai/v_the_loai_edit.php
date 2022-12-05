@@ -1,4 +1,4 @@
-<?php include_once '././view/layout/header.php'; ?>
+<?php include_once 'view/layout/header.php'; ?>
     <div class="page-wrapper">
         <div class="container-fluid">
             <div class="row">

@@ -28,13 +28,9 @@
                                         <select class="select2 form-control m-t-15" multiple="multiple" style="height: 36px;width: 100%;" name="id_phim[]">
                                             <?php foreach ($phim as $ph): ?>
                                                 <option value="<?=$ph->id?>"><?=$ph->name?></option>
-<!--                                                <option value="0">yoga 9:00am-11:00am</option>-->
                                             <?php endforeach; ?>
-<!--                                            <optgroup label="Tuesday">-->
-<!--                                                <option value="4">Gym 7:00am-9:00am</option>-->
-<!--                                                <option value="3">yoga 9:00am-11:00am</option>-->
-<!--                                            </optgroup>-->
                                         </select>
+                                        <span class="text-danger" <?= !isset($error)?'hidden':'' ?> ><?php echo $error; ?></span>
                                     </div>
                                 </div>
 

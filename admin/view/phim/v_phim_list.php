@@ -32,8 +32,9 @@
                                 <td><?= $value->ngay_khoi_chieu?></td>
                               
                                 <td>
-                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=phim_edit&id=<?=$value->id?>' ">Sửa</button>
-                                    <button type="button" class="btn btn-primary" onclick="return confirm_delete('<?=$value->id?>','<?=$value->name?>') ">Xóa</button>
+                                    <button type="button" class="btn btn-warning" onclick=" location.href='?ctr=phim_active&id=<?=$value->id?>'" <?=$value->status==0?'hidden':''?> style="margin-bottom: 0.3em">Công chiếu</button><br>
+                                    <button type="button" class="btn btn-primary" onclick=" location.href='?ctr=phim_edit&id=<?=$value->id?>'" style="margin-bottom: 0.3em">Sửa</button><br>
+                                    <button type="button" class="btn btn-danger" onclick="return confirm_delete('<?=$value->id?>','<?=$value->name?>') ">Xóa</button>
                                 </td>
                             </tr>
                         <?php endforeach;?>

@@ -21,7 +21,7 @@ class c_comfirmation_screen{
             $m_payment->insert_tbl_vnpay($id,$vnp_Amount,$vnp_BankCode,$vnp_BankTranNo,$vnp_CardType,$vnp_OrderInfo,$vnp_PayDate,$vnp_TmnCode,$vnp_TransactionNo);
 //            end tbl vnpay
 
-//            start ve
+//            start ve online
 
             $id_lich_chieu=$_SESSION['ve']['lich_chieu'];
             $id_khach_hang=$_SESSION['user']->id;
@@ -32,8 +32,9 @@ class c_comfirmation_screen{
             $pay_status=0;
             $m_ticket->insert_ticket_booking($id_ve,$id_lich_chieu,$id_khach_hang,$gia_ve,$ngay_dat,$ghe,$vnp_TransactionNo,$type_pay,$pay_status);
             unset($_SESSION['ve']);
-//            end ve
+//            end ve online
         }
+//        start đặt chỗ
         if (isset($_GET['pay_type'])&&$_GET['pay_type']=='cash'){
             $id_lich_chieu=$_SESSION['ve']['lich_chieu'];
             $id_khach_hang=$_SESSION['user']->id;
@@ -46,5 +47,6 @@ class c_comfirmation_screen{
             $m_ticket->insert_ticket_booking($id_ve,$id_lich_chieu,$id_khach_hang,$gia_ve,$ngay_dat,$ghe,$TransactionNo,$type_pay,$pay_status);
             unset($_SESSION['ve']);
         }
+//        end đặt chỗ
     }
 }

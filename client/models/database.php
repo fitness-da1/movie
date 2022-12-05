@@ -49,7 +49,7 @@ class database{
     }
 
     //Funtion load 1 data on the table
-    //lay 1 du lieu thoi
+    //lay 1 du lieu
     public function loadRow($option=array()) {
         if(!$option) {
             if(!$result = $this->execute())
