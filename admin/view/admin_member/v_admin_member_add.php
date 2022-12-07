@@ -19,8 +19,8 @@
                                     <label for="email"
                                            class="col-sm-3 text-right control-label col-form-label ">Email</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control required email" id="email" name="email"
-                                               placeholder="Email Here" <?= isset($error)?'value='.$email:'' ?> >
+                                        <input type="email" class="form-control required email" id="email" name="email"
+                                               placeholder="Email Here" <?= isset($error)?'value="'.$email.'"':'' ?> >
 
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@
                                         Name</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control required" id="fullname" name="fullname"
-                                               placeholder="Full Name Here" <?= isset($error)?'value='.$fullname:'' ?> >
+                                               placeholder="Full Name Here" <?= isset($error)?'value="'.$fullname.'"':'' ?> >
                                     </div>
                                 </div>
                                 <span class="text-danger" <?= !isset($error)?'hidden':'' ?> ><?php echo $error; ?></span>

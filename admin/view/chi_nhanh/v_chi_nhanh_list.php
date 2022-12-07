@@ -60,7 +60,7 @@
 
     function confirm_delete(id,name){
         if(confirm('Bạn chắc chắn muốn xóa chi nhánh'+name)){
-            window.open('?ctr=the_loai_delete&id='+id,'_self');
+            window.open('?ctr=chi_nhanh_delete&id='+id,'_self');
         }
     }
 </script>

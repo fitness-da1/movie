@@ -20,25 +20,29 @@ class c_seat_booking
         $_SESSION['ve'] = [];
         $m_lich_chieu = new m_lich_chieu();
         if (isset($_POST['btn_proceed'])) {
-            if (!empty($_POST['seat'])){
+            if (!empty($_POST['seat'])) {
                 $seat = $_POST['seat'];
-            }else{
+            } else {
                 $seat = [];
-                $flag=true;
+                $flag = true;
             }
 
             $lich_chieu = $_POST['id_lich_chieu'];
             $seat_close = $m_lich_chieu->check_status_seat($lich_chieu);
-            foreach ($seat_close as $value) {
-                $array[] = $value->ghe;
-            }
-            $a = implode(',', $array);
-            $close = explode(',', $a);
-            foreach ($seat as $item => $value) {
-                if (in_array($value, $close)) {
-                    $flag = true;
+            //check ghế đã được đặt khi chọn
+            if (!empty($seat_close)) {
+                foreach ($seat_close as $value) {
+                    $array[] = $value->ghe;
+                }
+                $a = implode(',', $array);
+                $close = explode(',', $a);
+                foreach ($seat as $item => $value) {
+                    if (in_array($value, $close)) {
+                        $flag = true;
+                    }
                 }
             }
+            //end check ghế đã được đặt khi chọn
             if (isset($flag)) {
                 header('location: ?ctr=seat_booking&id_lich_chieu=' . $lich_chieu . '&error_book_seat');
             } else {

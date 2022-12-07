@@ -209,9 +209,9 @@ if (!empty($seat_close)) {
                                     <li class="st_seat_heading_row"><?= $item ?></li>
                                     <?php foreach ($value as $key => $st): ?>
                                         <ul>
-                                            <li class="<?php if (!empty($close)) echo in_array($st, $close) == true ? 'seat_disable' : '' ?>" >
+                                            <li class="<?php if (!empty($close)) echo in_array($st, $close) == true ? 'seat_disable' : '' ?>"  >
                                                 <input type="checkbox" id="<?= $st ?>" name="seat[]" value="<?= $st ?>"
-                                                       class="seat">
+                                                       class="seat" <?php if (!empty($close)) echo in_array($st, $close) == true ? 'disabled' : '' ?> >
                                                 <label for="<?= $st ?>"></label>
                                             </li>
 
@@ -326,5 +326,5 @@ if (!empty($seat_close)) {
         // 	                $('.select_number').find("input").val(1);
         // 	            }
         // 	        }
-    </script>
+ </script>
 <?php include_once 'view/layout/footer.php' ?>

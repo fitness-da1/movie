@@ -25,7 +25,14 @@
                             <tbody>
                             <?php
 
-                            foreach ($ve as $key => $value) { ?>
+                            foreach ($ve as $key => $value) {
+//                                $time_lich_chieu=$value->ngay_chieu." ".$value->gio_bat_dau;
+//                                $time=strtotime($time_lich_chieu);
+//                                $time_now=strtotime(date("Y-m-d H:i"));
+//                                echo $time."<br>";
+//                                echo $time_now."<br>";
+//                                echo strtotime(date("Y-m-d H:i") .'- 30 minutes')."<br>";
+                                ?>
 
                                 <tr>
                                     <td><?= $value->ten_khach_hang ?></td>

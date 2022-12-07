@@ -63,6 +63,13 @@ class m_chi_nhanh extends database
         return $this->loadAllRows(array($id_chi_nhanh));
     }
 
+    public function read_id_phim_of_chi_nhanh($id_chi_nhanh)
+    {
+        $sql = "SELECT id_phim FROM phim_of_chi_nhanh where id_chi_nhanh=?";
+        $this->setQuery($sql);
+        return $this->loadAllRows(array($id_chi_nhanh));
+    }
+
     public function delete_phim_of_chi_nhanh($id)
     {
         $sql = "DELETE from phim_of_chi_nhanh where id=?";
@@ -103,10 +110,10 @@ class m_chi_nhanh extends database
         return $this->loadRow(array($id));
     }
 
-    public function edit_ve_of_lich_chieu($ghe, $id)
+    public function edit_ve_of_lich_chieu($ghe,$gia_ve, $id)
     {
-        $sql = "UPDATE ve SET ghe=? where id=?";
+        $sql = "UPDATE ve SET ghe=?,gia_ve=? where id=?";
         $this->setQuery($sql);
-        return $this->execute(array($ghe, $id));
+        return $this->execute(array($ghe,$gia_ve, $id));
     }
 }

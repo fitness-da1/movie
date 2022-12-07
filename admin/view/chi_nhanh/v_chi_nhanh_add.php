@@ -13,7 +13,7 @@
                                         nhánh</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="name" name="name"
-                                               placeholder="" <?= isset($error) ? 'value=' . $name : '' ?>>
+                                               placeholder="" <?= isset($error) ? 'value="' . $name.'"' : '' ?>>
                                         <span class="text-danger" <?= !isset($error) ? 'hidden' : '' ?> ><?php echo $error; ?></span>
                                     </div>
                                 </div>

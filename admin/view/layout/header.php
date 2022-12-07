@@ -15,6 +15,7 @@
     <!-- <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet"> -->
     <!-- Custom CSS -->
     <link href="./view/dist/css/style.min.css" rel="stylesheet">
+<!--    <link href="./view/dist/css/seat.css" rel="stylesheet">-->
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="./view/assets/extra-libs/multicheck/multicheck.css">
     <link href="./view/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">

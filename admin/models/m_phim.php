@@ -7,7 +7,8 @@ class m_phim extends database
     {
         $sql = "INSERT INTO phim VALUES (?,?,?,?,?,?,?,?,?)";
         $this->setQuery($sql);
-        return $this->execute(array($id, $name, $description, $thoi_luong, $rate, $avatar, $ngay_khoi_chieu, $trailer, $status));
+        $this->execute(array($id, $name, $description, $thoi_luong, $rate, $avatar, $ngay_khoi_chieu, $trailer, $status));
+        return $this->getLastId();
     }
 
     public function insert_the_loai_of_phim($id, $id_the_loai, $id_phim)
@@ -44,7 +45,12 @@ class m_phim extends database
         $this->setQuery($sql);
         return $this->execute(array($name, $description, $thoi_luong, $rate, $avatar, $ngay_khoi_chieu, $trailer, $id));
     }
-
+public function edit_the_loai_of_phim($id_the_loai, $id_phim)
+    {
+        $sql = "UPDATE the_loai_of_phim set id_the_loai = ? where id_phim=?";
+        $this->setQuery($sql);
+        return $this->execute(array($id_the_loai, $id_phim));
+    }
     public function phim_delete($id)
     {
         $sql = "DELETE from phim where id=?";
@@ -58,13 +64,14 @@ class m_phim extends database
         $this->setQuery($sql);
         return $this->execute(array($id));
     }
-
-    public function getLastId()
+    public function read_the_loai_of_phim($id)
     {
-        $sql="SELECT Max(id) as lastID FROM phim";
+        $sql = "SELECT id_the_loai  from the_loai_of_phim where id_phim=?";
         $this->setQuery($sql);
-        return $this->loadRow();
+        return $this->loadAllRows(array($id));
     }
+
+
 
 //public function getLastId()
 //{
