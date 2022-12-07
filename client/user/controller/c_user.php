@@ -25,6 +25,6 @@ class c_user{
     }
     public function logout(){
         unset($_SESSION['user']);
-        header('location: http://localhost/moive1/client/');
+        header('location: http://localhost/movie/client/');
     }
 }

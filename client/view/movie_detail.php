@@ -8,7 +8,7 @@
                 <div class="st_video_slider_inner_wrapper float_left">
                     <div class="st_video_slider_overlay"></div>
                     <div class="st_video_slide_sec float_left">
-                        <a rel='external' href='<?=$phim->trailer?>' title='title' class="test-popup-link">
+                        <a rel='external' href="<?=$phim->trailer?>" title='title' class="test-popup-link">
                             <img src="view/asset/images/index_III/icon.png" alt="img">
                         </a>
                         <h3><?=$phim->name?></h3>
@@ -59,87 +59,30 @@
         <div class="st_slider_rating_left">
             <div class="st_rating_box">
                 <fieldset class="rating">
-                    <h3>3</h3>
-                    <input type="radio" name="rating" value="5" />
-                    <label class="full" title="5 stars"></label>
-                    <input type="radio" name="rating" value="4 and a half" />
-                    <label class="half" title="4.5 stars"></label>
-                    <input type="radio" name="rating" value="4" />
-                    <label class="full" title="4 stars"></label>
-                    <input type="radio" name="rating" value="3 and a half" />
-                    <label class="half" title="3.5 stars"></label>
-                    <input type="radio" name="rating" value="3" />
-                    <label class="full" title="3 stars"></label>
-                    <input type="radio" name="rating" value="2 and a half" />
-                    <label class="half" title="2.5 stars"></label>
-                    <input type="radio" name="rating" value="2" />
-                    <label class="full" title="2 stars"></label>
-                    <input type="radio" name="rating" value="1 and a half" />
-                    <label class="half" title="1.5 stars"></label>
-                    <input type="radio" name="rating" value="1" />
-                    <label class="full" title="1 star"></label>
-                    <input type="radio" name="rating" value="half" />
-                    <label class="half" title="0.5 stars"></label>
                 </fieldset>
-                <h4>CRITICS RATING</h4>
+                <h4></h4>
             </div>
             <div class="st_rating_box st_rating_box2">
                 <fieldset class="rating">
-                    <h3>4.5&nbsp;&nbsp;</h3>
-                    <input type="radio" name="rating" value="5" />
-                    <label class="full" title="5 stars"></label>
-                    <input type="radio" name="rating" value="4 and a half" />
-                    <label class="half" title="4.5 stars"></label>
-                    <input type="radio" name="rating" value="4" />
-                    <label class="full" title="4 stars"></label>
-                    <input type="radio" name="rating" value="3 and a half" />
-                    <label class="half" title="3.5 stars"></label>
-                    <input type="radio" name="rating" value="3" />
-                    <label class="full" title="3 stars"></label>
-                    <input type="radio" name="rating" value="2 and a half" />
-                    <label class="half" title="2.5 stars"></label>
-                    <input type="radio" name="rating" value="2" />
-                    <label class="full" title="2 stars"></label>
-                    <input type="radio" name="rating" value="1 and a half" />
-                    <label class="half" title="1.5 stars"></label>
-                    <input type="radio" name="rating" value="1" />
-                    <label class="full" title="1 star"></label>
-                    <input type="radio" name="rating" value="half" />
-                    <label class="half" title="0.5 stars"></label>
                 </fieldset>
-                <h4>USERS RATING</h4>
+                <h4>  </h4>
             </div>
             <div class="st_rating_box st_rating_box2">
                 <fieldset class="rating">
-                    <h3>0&nbsp;&nbsp;</h3>
-                    <input type="radio" name="rating" value="5" />
-                    <label class="full" title="5 stars"></label>
-                    <input type="radio" name="rating" value="4 and a half" />
-                    <label class="half" title="4.5 stars"></label>
-                    <input type="radio" name="rating" value="4" />
-                    <label class="full" title="4 stars"></label>
-                    <input type="radio" name="rating" value="3 and a half" />
-                    <label class="half" title="3.5 stars"></label>
-                    <input type="radio" name="rating" value="3" />
-                    <label class="full" title="3 stars"></label>
-                    <input type="radio" name="rating" value="2 and a half" />
-                    <label class="half" title="2.5 stars"></label>
-                    <input type="radio" name="rating" value="2" />
-                    <label class="full" title="2 stars"></label>
-                    <input type="radio" name="rating" value="1 and a half" />
-                    <label class="half" title="1.5 stars"></label>
-                    <input type="radio" name="rating" value="1" />
-                    <label class="full" title="1 star"></label>
-                    <input type="radio" name="rating" value="half" />
-                    <label class="half" title="0.5 stars"></label>
                 </fieldset>
-                <h4>RATE IT</h4>
+                <h4>  </h4>
             </div>
         </div>
-        <div class="st_slider_rating_right">
+        <div class="st_slider_rating_right" style="float: right">
             <div class="st_slider_rating_btn prs_animate_btn1">
                 <ul>
-                    <li data-animation="animated fadeInUp"><a href="?ctr=movie_booking&id_phim=<?=$phim->id?>" class="button button--tamaya prs_upcom_main_btn" data-text="book now"><span>book now</span></a>
+                    <li data-animation="animated fadeInUp">
+                        <a <?php if (isset($_SESSION['user'])) {
+                            echo 'href="?ctr=movie_booking&id_phim=' . $phim->id . '"';
+                        } else {
+                            echo 'data-toggle="modal" data-target="#myModal"';
+                        } ?>
+                                class="button button--tamaya prs_upcom_main_btn" data-text="đặt vé"><span>đặt vé</span></a>
                     </li>
                 </ul>
             </div>
@@ -148,6 +91,7 @@
 <!--                <h4>52,291 votes</h4>-->
             </div>
         </div>
+
     </div>
 </div>
 <!-- st slider rating wrapper End -->
@@ -193,9 +137,9 @@
                         <div class="col-md-12">
                             <div class="prs_upcome_tabs_wrapper prs_upcome_tabs_wrapper_mss float_left">
                                 <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="active"><a href="#home" aria-controls="best" role="tab" data-toggle="tab">Summary</a>
+                                    <li role="presentation" class="active"><a href="#home" aria-controls="best" role="tab" data-toggle="tab">Nội dung phim</a>
                                     </li>
-                                    <li role="presentation"><a href="#menu2" aria-controls="trand" role="tab" data-toggle="tab">Behind The Scenes</a>
+                                    <li role="presentation"><a href="#menu2" aria-controls="trand" role="tab" data-toggle="tab">Hậu trường</a>
                                     </li>
                                 </ul>
                             </div>
@@ -206,7 +150,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="st_md_summ_pera float_left">
-                                                <h5>SYNOPSIS</h5>
+                                                <h5>Nội dung</h5>
 <!--                                                <p>Immediately following the events of Justice League, Arthur Curry, the reluctant heir to the underwater kingdom of Atlantis, tries to balance the world of the surface dwellers and his own people. But where does his loyalty lie? In the water or on the land? While Aquaman finds himself at crossroads with these questions, closer to home a known foe tries to dethrone him.</p>-->
                                             <p><?=$phim->description?></p>
                                             </div>

@@ -11,11 +11,18 @@
                                 <input type="text" class="form-control" id="id" name="id" value="<?=$chi_nhanh->id?>" hidden>
 
                                 <div class="form-group row">
-                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Thể loại</label>
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Tên chi nhánh</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="uname" name="name" placeholder="" value="<?=$chi_nhanh->name?>">
                                     </div>
                                 </div>
+                                <span style="color: red">
+                                    <?php
+                                    if (isset($_GET['error'])) {
+                                        echo 'Vui lòng điền đầy đủ thông tin và đúng định dạng!';
+                                    }
+                                    ?>
+                                    </span>
                           </div>
                             <div class="border-top">
                                 <div class="card-body">

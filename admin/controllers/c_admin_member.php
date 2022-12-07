@@ -14,20 +14,23 @@ class c_admin_member
             $vai_tro = 0;
             $check_email = $this->validate_email($email);//check định dạng email
             $admin = $m_admin_member->read_admin_member_by_email($email);//check email đã tồn tại chưa
-            if (!$admin && trim($password) != '' && trim($fullname) != '' && trim($email) != '' && $check_email == true) {
-                $m_admin_member->insert_admin_member($id, $email, md5($password), $fullname, $vai_tro);
-                echo "<script>alert('Thêm thành công!');</script>";
-            } elseif (trim($password) == '' || trim($fullname) == '' || trim($email) == '') {
-                $error = 'Vui lòng điền đầy đủ thông tin và đúng định dạng!';
-            } elseif ($check_email == false) {
+            if ($check_email === false) {
                 $error = 'Email không hợp lệ!';
-            } else {
-                    $error = "Email đã tồn tại";
-                }
-//            header('location:admin_member_add.php?result=' . $username);
             }
-            include_once("view/admin_member/v_admin_member_add.php");
+            if ($admin) {
+                $error = "Email đã tồn tại";
+            }
+            if (empty(trim($password)) || empty(trim($fullname)) || empty(trim($email))) {
+                $error = 'Vui lòng điền đầy đủ thông tin và đúng định dạng!';
+            }
+            if (!isset($error)) {
+                $m_admin_member->create_admin_member($id, $password, $fullname, $email, $vai_tro);
+                echo "<script>alert('Thêm thành công!')</script>";
+            }
+//            header('location:admin_member_add.php?result=' . $username);
         }
+        include_once("view/admin_member/v_admin_member_add.php");
+    }
 
 
     public function admin_member_list()
@@ -55,8 +58,20 @@ class c_admin_member
             $fullname = $_POST['fullname'];
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $m_admin_member->edit_admin_member($email, $fullname, md5($password), $id);
-            header('location:?ctr=admin_member_list');
+            $check_email = $this->validate_email($email);//check định dạng email
+            if ($check_email === false) {
+                $error = 'Email không hợp lệ!';
+                header('location: ?ctr=admin_member_edit&id='.$id.'&error');
+            }
+            if (empty(trim($password)) || empty(trim($fullname)) || empty(trim($email))) {
+                $error = 'Vui lòng điền đầy đủ thông tin và đúng định dạng!';
+                header('location: ?ctr=admin_member_edit&id='.$id.'&error');
+
+            }
+            if (!isset($error)) {
+                $m_admin_member->edit_admin_member($email, $fullname, md5($password), $id);
+                header('location:?ctr=admin_member_list');
+            }
         }
 
     }
@@ -141,12 +156,10 @@ class c_admin_member
                     $isValid = false;
                 }
             }
-
             if ($isValid && !(checkdnsrr($domain, "MX") || checkdnsrr($domain, "A"))) {
                 $isValid = false;
             }
         }
-
         return $isValid;
     }
 }

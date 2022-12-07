@@ -20,15 +20,17 @@ class c_seat_booking
         $_SESSION['ve'] = [];
         $m_lich_chieu = new m_lich_chieu();
         if (isset($_POST['btn_proceed'])) {
+            //check ghế có được chọn không
             if (!empty($_POST['seat'])) {
                 $seat = $_POST['seat'];
             } else {
                 $seat = [];
                 $flag = true;
             }
-
+//end check ghế có được chọn không
             $lich_chieu = $_POST['id_lich_chieu'];
             $seat_close = $m_lich_chieu->check_status_seat($lich_chieu);
+
             //check ghế đã được đặt khi chọn
             if (!empty($seat_close)) {
                 foreach ($seat_close as $value) {

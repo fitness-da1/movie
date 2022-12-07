@@ -11,6 +11,7 @@ class c_home
         } else {
             $film = $m_home->get_film();
         }
+        $film_sap_chieu = $m_home->get_flim_sap_chieu();
         $the_loai = $m_home->get_the_loai();
         include_once 'view/home.php';
     }

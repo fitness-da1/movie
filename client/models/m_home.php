@@ -7,6 +7,12 @@ class m_home extends database {
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
+    public function get_flim_sap_chieu()
+    {
+        $sql="SELECT *from phim where status=1";
+        $this->setQuery($sql);
+        return $this->loadAllRows();
+    }
     public function get_phim_by_the_loai($id_the_loai){
         $sql="SELECT ph.* from the_loai_of_phim as tlfp
             inner join phim as ph on ph.id=tlfp.id_phim

@@ -191,19 +191,6 @@ if (!empty($seat_close)) {
 
 
                         <div class="st_seat_lay_row float_left">
-                            <ul>
-                                <li class="st_seat_heading_row">STT</li>
-                                <ul>
-                                    <?php for ($i = 1; $i <= 23; $i++): ?>
-                                        <li class="seat_disable" style="color: white !important; display: block;margin:0px 17.5px; padding-top: 55px; font-size: 15px">
-                                            <?= $i ?>
-                                        </li>
-                                    <?php endfor; ?>
-                                </ul>
-                            </ul>
-                        </div>
-
-                        <div class="st_seat_lay_row float_left">
                             <?php foreach ($seat as $item => $value): ?>
                                 <ul>
                                     <li class="st_seat_heading_row"><?= $item ?></li>
@@ -212,13 +199,21 @@ if (!empty($seat_close)) {
                                             <li class="<?php if (!empty($close)) echo in_array($st, $close) == true ? 'seat_disable' : '' ?>"  >
                                                 <input type="checkbox" id="<?= $st ?>" name="seat[]" value="<?= $st ?>"
                                                        class="seat" <?php if (!empty($close)) echo in_array($st, $close) == true ? 'disabled' : '' ?> >
-                                                <label for="<?= $st ?>"></label>
+                                                <label for="<?= $st ?>" class="content<?= $st ?>"></label>
                                             </li>
 
                                         </ul>
-
+                                        <style>
+                                            .st_seat_lay_row input[type="checkbox"] + .content<?= $st ?>:before{
+                                                content: "<?= $st ?>";
+                                            }
+                                            .st_seat_lay_row input[type="checkbox"]:checked + .content<?= $st ?>:before {
+                                                content: "<?= $st ?>";
+                                            }
+                                        </style>
                                     <?php endforeach; ?>
                                 </ul>
+
                             <?php endforeach; ?>
 
                         </div>
@@ -327,4 +322,12 @@ if (!empty($seat_close)) {
         // 	            }
         // 	        }
  </script>
+
+    <script>
+
+        $('input[type="checkbox"] label').each(function() {
+            $(this).append(document.createElement('style'));
+            $(this).attr('style').html('.st_seat_lay_row input[type="checkbox"] + label:before {content:"2"}');
+        });
+    </script>
 <?php include_once 'view/layout/footer.php' ?>

@@ -168,15 +168,15 @@ $close1=array_diff($close, $ve_slt);
                     <!-- st top header Start -->
                     <!-- st seat Layout Start -->
                     <div class="st_seatlayout_main_wrapper float_left">
-                        <div class="container container_seat">
-                            <div class="st_seat_lay_heading float_left">
-                                <h3 style="color: red" <?= isset($_GET['error_book_seat']) ? '' : 'hidden' ?> >Lỗi chọn
+                        <div class="container-fluid container_seat">
+                            <div class="st_seat_lay_heading ">
+                                <h3 style="color: red" <?= isset($_GET['error']) ? '' : 'hidden' ?> >Lỗi chọn
                                     ghế vui lòng chọn lại</h3>
                                 <h3>Chi nhánh <?= $info->ten_chi_nhanh ?></h3>
 
                             </div>
                             <div class="st_seat_full_container">
-                                <div class="st_seat_lay_economy_wrapper float_left">
+                                <div class="st_seat_lay_economy_wrapper">
                                     <div class="screen">
                                         <img src="../client/view/asset/images/content/screen.png">
                                     </div>
@@ -197,21 +197,7 @@ $close1=array_diff($close, $ve_slt);
                                     </div>
 
 
-                                    <div class="st_seat_lay_row float_left">
-                                        <ul>
-                                            <li class="st_seat_heading_row">STT</li>
-                                            <ul>
-                                                <?php for ($i = 1; $i <= 23; $i++): ?>
-                                                    <li class="seat_disable"
-                                                        style="color: white !important; display: block;margin:0px 17.5px; padding-top: 55px; font-size: 15px">
-                                                        <?= $i ?>
-                                                    </li>
-                                                <?php endfor; ?>
-                                            </ul>
-                                        </ul>
-                                    </div>
-
-                                    <div class="st_seat_lay_row float_left">
+                                    <div class="st_seat_lay_row ">
                                         <?php foreach ($seat as $item => $value): ?>
                                             <ul>
                                                 <li class="st_seat_heading_row"><?= $item ?></li>
@@ -223,16 +209,22 @@ $close1=array_diff($close, $ve_slt);
                                                                    class="seat" <?php if (!empty($close1)) echo in_array($st, $close1) == true ? 'disabled' : '' ?>
                                                             <?php if (!empty($ve_slt)) echo in_array($st,$ve_slt)==true?'checked':''?>
                                                             >
-                                                            <label for="<?= $st ?>"></label>
+                                                            <label for="<?= $st ?>" class="content<?=$st?>"></label>
                                                         </li>
-
                                                     </ul>
-
+                                                <style>
+                                                    .st_seat_lay_row input[type="checkbox"] + .content<?= $st ?>:before{
+                                                    content: "<?= $st ?>";
+                                                    }
+                                                    .st_seat_lay_row input[type="checkbox"]:checked + .content<?= $st ?>:before {
+                                                        content: "<?= $st ?>";
+                                                    }
+                                                </style>
                                                 <?php endforeach; ?>
                                             </ul>
                                         <?php endforeach; ?>
-
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -282,4 +274,11 @@ $close1=array_diff($close, $ve_slt);
             </div>
         </div>
     </div>
+
+<script>
+
+    $('.st_seat_lay_row input[type="checkbox"] label').each(function() {
+        $(this).before(setStyles.content("2"));
+    });
+</script>
 <?php include_once 'view/layout/footer.php' ?>

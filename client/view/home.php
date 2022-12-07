@@ -13,15 +13,18 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="prs_mc_slider_wrapper">
                         <div class="owl-carousel owl-theme">
+                            <?php foreach ($film_sap_chieu as $fsc): ?>
                             <div class="item">
-                                <img src="view/asset/images/content/movie_category/slider_img1.jpg" alt="about_img">
+<!--                                <img src="view/asset/images/content/movie_category/slider_img1.jpg" alt="about_img">-->
+                                <img src="../public/image/<?=$fsc->avatar?>" alt="" width="600" height="500">
                             </div>
-                            <div class="item">
-                                <img src="view/asset/images/content/movie_category/slider_img1.jpg" alt="about_img">
-                            </div>
-                            <div class="item">
-                                <img src="view/asset/images/content/movie_category/slider_img1.jpg" alt="about_img">
-                            </div>
+                            <?php endforeach ?>
+<!--                            <div class="item">-->
+<!--                                <img src="view/asset/images/content/movie_category/slider_img1.jpg" alt="about_img">-->
+<!--                            </div>-->
+<!--                            <div class="item">-->
+<!--                                <img src="view/asset/images/content/movie_category/slider_img1.jpg" alt="about_img">-->
+<!--                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -91,7 +94,7 @@
                                                         </div>
                                                         <div class="prs_upcom_movie_content_box">
                                                             <div class="prs_upcom_movie_content_box_inner">
-                                                                <h2><a href="#"><?= $fl->name ?></a></h2>
+                                                                <h2><a href="?ctr=movie_detail&id_phim=<?= $fl->id ?>"><?= $fl->name ?></a></h2>
                                                                 <?php $m_home = new m_home();
                                                                 $the_loai = $m_home->get_the_loai_phim($fl->id);
                                                                 ?>
@@ -136,7 +139,7 @@
                                                         </div>
                                                         <div class="prs_mcc_list_movie_img_cont_wrapper">
                                                             <div class="prs_mcc_list_left_cont_wrapper">
-                                                                <h2><a href="#"><?= $fl->name ?></a></h2>
+                                                                <h2><a href="?ctr=movie_detail&id_phim=<?= $fl->id ?>"><?= $fl->name ?></a></h2>
                                                                 <?php $m_home = new m_home();
                                                                 $the_loai = $m_home->get_the_loai_phim($fl->id);
                                                                 ?>

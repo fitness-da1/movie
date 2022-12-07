@@ -6,6 +6,7 @@ class c_comfirmation_screen{
         $m_payment= new m_payment();
         $m_ticket = new m_ticket();
         mt_srand(8);
+        //            start ve online
         if (isset($_GET['vnp_ResponseCode'])&&$_GET['vnp_ResponseCode']==0){
 //           start tbl vnpay
             $id=null;
@@ -17,11 +18,8 @@ class c_comfirmation_screen{
             $vnp_PayDate=$_GET['vnp_PayDate'];
             $vnp_TmnCode=$_GET['vnp_TmnCode'];
             $vnp_TransactionNo=$_GET['vnp_TransactionNo'];
-
             $m_payment->insert_tbl_vnpay($id,$vnp_Amount,$vnp_BankCode,$vnp_BankTranNo,$vnp_CardType,$vnp_OrderInfo,$vnp_PayDate,$vnp_TmnCode,$vnp_TransactionNo);
 //            end tbl vnpay
-
-//            start ve online
 
             $id_lich_chieu=$_SESSION['ve']['lich_chieu'];
             $id_khach_hang=$_SESSION['user']->id;
@@ -32,9 +30,10 @@ class c_comfirmation_screen{
             $pay_status=0;
             $m_ticket->insert_ticket_booking($id_ve,$id_lich_chieu,$id_khach_hang,$gia_ve,$ngay_dat,$ghe,$vnp_TransactionNo,$type_pay,$pay_status);
             unset($_SESSION['ve']);
-//            end ve online
         }
-//        start đặt chỗ
+        //            end ve online
+
+//        start đặt chỗ (tiền mặt)
         if (isset($_GET['pay_type'])&&$_GET['pay_type']=='cash'){
             $id_lich_chieu=$_SESSION['ve']['lich_chieu'];
             $id_khach_hang=$_SESSION['user']->id;

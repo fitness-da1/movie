@@ -50,7 +50,7 @@ class c_chi_nhanh
 //                echo "<script>alert('Thêm thành công!');</script>";
                 header('location:?ctr=chi_nhanh_list&msg=success');
             } else {
-                header('location: ?ctr=chi_nhanh_edit&id=' . $id . '&msg=error');
+                header('location: ?ctr=chi_nhanh_edit&id=' . $id . '&error');
             }
         }
     }
@@ -148,13 +148,13 @@ class c_chi_nhanh
         }
 
 //xóa vé (vé đặt trước trả tiền mặt) tự động khi hết thời gian
-        foreach ($ve as $item => $v) {
-            $time_lich_chieu=$v->ngay_chieu ." ".$v->gio_bat_dau;
-            $time=strtotime($time_lich_chieu);
-            if($time<= strtotime(date("Y-m-d H:i") .'- 30 minutes')){
-//                $m_ve->update_trang_thai_ve($v->id);
-            }
-        }
+//        foreach ($ve as $item => $v) {
+//            $time_lich_chieu=$v->ngay_chieu ." ".$v->gio_bat_dau;
+//            $time=strtotime($time_lich_chieu);
+//            if($time<= strtotime(date("Y-m-d H:i") .'- 30 minutes')){
+//                $m_ve->=dl_ve($v->id);
+//            }
+//        }
 
     }
 
@@ -177,7 +177,7 @@ class c_chi_nhanh
         $m_lich_chieu = new m_chi_nhanh();
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
-            $lich_chieu=$_GET['id_lc'];
+            $lich_chieu = $_GET['id_lc'];
             $ve = $m_lich_chieu->show_ve_of_lich_chieu($id);
             $info = $m_ve->show_info_phong_chieu($lich_chieu);
             $seat_close = $m_ve->check_status_seat($lich_chieu);
@@ -187,12 +187,39 @@ class c_chi_nhanh
             $id = $_POST['id'];
             $id_lc = $_POST['id_lc'];
             $id_cn = $_POST['id_cn'];
-            $ghe = implode(',',$_POST['seat']);
-            $so_ghe=count($_POST['seat'], 0);
-            $gia_ve=($so_ghe*50000)+($so_ghe*50000*0.05);
-            $m_lich_chieu->edit_ve_of_lich_chieu($ghe,$gia_ve, $id);
-            header('location: ?ctr=load_ve_of_lich_chieu&id=' . $id_lc . '&id_cn=' . $id_cn);
+            if (!empty($_POST['seat'])){
+                $ghe = implode(',', $_POST['seat']);
+                $so_ghe = count($_POST['seat'], 0);
+                $gia_ve = ($so_ghe * 50000) + ($so_ghe * 50000 * 0.05);
+                $seat_close = $m_ve->check_status_seat($id_lc);
+                foreach ($seat_close as $sc) {
+                    $array[] = $sc->ghe;
+                }
+                $a = implode(',', $array);
+                $close = explode(',', $a);
+
+                foreach ($_POST['seat'] as $item => $seat) {
+                    foreach ($close as $item => $cl) {
+                        if ($seat == $cl) {
+                            $error = "Ghế đã có người đặt";
+                        }
+                    }
+                }
+            }else{
+                $error = "Vui lòng chọn ghế";
+//                $ghe = null;
+            }
+
+            if (isset($error)) {
+                header('Location: ?ctr=edit_ve_lich_chieu&id=' . $id . '&id_cn=' . $ic_cn . '&id_lc=' . $id_lc . '&error=seat_error');
+
+            } else {
+                $m_lich_chieu->edit_ve_of_lich_chieu($ghe, $gia_ve, $id);
+                header('location: ?ctr=load_ve_of_lich_chieu&id=' . $id_lc . '&id_cn=' . $id_cn);
+            }
         }
     }
+
+
 
 }

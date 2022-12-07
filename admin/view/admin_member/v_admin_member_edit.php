@@ -36,8 +36,13 @@
                                     </div>
                                 </div>
 
-
-
+                                <span style="color: red">
+                                    <?php
+                                    if (isset($_GET['error'])) {
+                                        echo 'Vui lòng điền đầy đủ thông tin và đúng định dạng!';
+                                    }
+                                    ?>
+                                    </span>
 
                             </div>
 
