@@ -127,5 +127,8 @@
         if (msg == 'success') {
             Swal.fire('Thêm thành công!', '', 'success');
         }
+        $('.swal2-confirm').on('click',function () {
+            window.open ('?ctr=add_film_chi_nhanh','_self');
+        });
     </script>
 <?php include_once 'view/layout/footer.php'; ?>

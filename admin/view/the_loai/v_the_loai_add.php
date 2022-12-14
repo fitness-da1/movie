@@ -36,6 +36,7 @@
     <!--hiển thị file name-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+    <script src="./view/assets/libs/jquery/dist/jquery.min.js"></script>
     <script>
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
@@ -51,6 +52,9 @@
         if (msg == 'success') {
             Swal.fire('Thêm thành công!', '', 'success');
         }
+        $('.swal2-confirm').on('click',function () {
+            window.open ('?ctr=the_loai_add','_self');
+        });
     </script>
     <script>
         let fileInput = document.querySelector('#validatedCustomFile');

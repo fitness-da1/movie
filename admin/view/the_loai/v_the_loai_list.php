@@ -1,4 +1,4 @@
-<?php include_once '././view/layout/header.php'; ?>
+<?php include_once 'view/layout/header.php'; ?>
 
     <div class="page-wrapper">
         <div class="container-fluid">
@@ -71,7 +71,8 @@
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Đồng ý'
+                confirmButtonText: 'Đồng ý',
+                cancelButtonText: 'Hủy'
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.open('?ctr=the_loai_delete&id=' + id, '_self');
@@ -100,4 +101,4 @@
             Swal.fire('Xóa thành công!', '', 'success');
         }
     </script>
-<?php include_once '././view/layout/footer.php'; ?>
+<?php include_once 'view/layout/footer.php'; ?>

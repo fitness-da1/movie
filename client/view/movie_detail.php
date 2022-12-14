@@ -8,7 +8,7 @@
                 <div class="st_video_slider_inner_wrapper float_left">
                     <div class="st_video_slider_overlay"></div>
                     <div class="st_video_slide_sec float_left">
-                        <a rel='external' href="<?=$phim->trailer?>" title='title' class="test-popup-link">
+                        <a  href="<?=$phim->trailer?>" title='title' class="test-popup-link">
                             <img src="view/asset/images/index_III/icon.png" alt="img">
                         </a>
                         <h3><?=$phim->name?></h3>

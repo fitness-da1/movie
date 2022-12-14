@@ -9,14 +9,17 @@ class c_chi_nhanh
             $id = NULL;
             $name = $_POST['name'];
             $check = $m_chi_nhanh->read_chi_nhanh_by_name($name);
-            if (!$check && trim($name) != '') {
-                $m_chi_nhanh->insert_chi_nhanh($id, $name);
-                echo "<script>alert('Thêm thành công!');</script>";
-            } elseif (trim($name) == '') {
-                $error = 'Vui lòng điền đầy đủ thông tin!';
-            } else {
+            if ($check) {
                 $error = "Tên chi nhánh đã tồn tại";
             }
+            if (empty(trim($name))) {
+                $error = 'Vui lòng điền đầy đủ thông tin và đúng định dạng!';
+            }
+            if (!isset($error)) {
+                $m_chi_nhanh->insert_chi_nhanh($id, $name);
+                header('location:?ctr=chi_nhanh_add&msg=succes');
+            }
+
         }
         include_once("view/chi_nhanh/v_chi_nhanh_add.php");
     }
@@ -122,8 +125,9 @@ class c_chi_nhanh
         $m_chi_nhanh = new m_chi_nhanh();
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
+            $id_cn= $_GET['id_cn'];
             $m_chi_nhanh->delete_phim_of_chi_nhanh($id);
-            header('location: ?ctr=chi_nhanh_list');
+            header('location: ?ctr=list_film_of_chi_nhanh&id='.$id_cn.'&dl=success');
         }
     }
 
@@ -166,7 +170,6 @@ class c_chi_nhanh
             $id_lc = $_GET['id_lc'];
             $id_cn = $_GET['id_cn'];
             $m_lich_chieu->active_pay_ve_of_lich_chieu($id);
-//            include_once 'view/chi_nhanh/v_list_ve_of_lich_chieu.php';
             header('location: ?ctr=load_ve_of_lich_chieu&id=' . $id_lc . '&id_cn=' . $id_cn);
         }
     }
@@ -175,6 +178,7 @@ class c_chi_nhanh
     {
         $m_ve = new m_ve();
         $m_lich_chieu = new m_chi_nhanh();
+        //show thông tin vé
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $lich_chieu = $_GET['id_lc'];
@@ -183,39 +187,44 @@ class c_chi_nhanh
             $seat_close = $m_ve->check_status_seat($lich_chieu);
             include_once 'view/ve/v_edit_ve.php';
         }
+        //update thông tin vé
         if (isset($_POST['btn_edit_ve'])) {
             $id = $_POST['id'];
             $id_lc = $_POST['id_lc'];
             $id_cn = $_POST['id_cn'];
             if (!empty($_POST['seat'])){
                 $ghe = implode(',', $_POST['seat']);
+                $ghe_temp=$_POST['seat'];
                 $so_ghe = count($_POST['seat'], 0);
                 $gia_ve = ($so_ghe * 50000) + ($so_ghe * 50000 * 0.05);
-                $seat_close = $m_ve->check_status_seat($id_lc);
+                //check ghế đã đặt
+                $ve = $m_lich_chieu->show_ve_of_lich_chieu($id);//lấy thông tin vé của người dùng
+                $array_ve[] = $ve->ghe;
+                $b = implode(',', $array_ve);
+                $ve_slt = explode(',', $b);
+                $seat_close = $m_ve->check_status_seat($id_lc);//lấy thông tin ghế đã đặt
                 foreach ($seat_close as $sc) {
                     $array[] = $sc->ghe;
                 }
                 $a = implode(',', $array);
                 $close = explode(',', $a);
-
-                foreach ($_POST['seat'] as $item => $seat) {
-                    foreach ($close as $item => $cl) {
-                        if ($seat == $cl) {
-                            $error = "Ghế đã có người đặt";
+                $close1=array_diff($close, $ve_slt);
+                foreach ($ghe_temp as $seat) {
+                        if (in_array($seat, $close1)) {
+                            $error = "seat-invalid";
                         }
-                    }
                 }
+                //end check ghế đã đặt
             }else{
-                $error = "Vui lòng chọn ghế";
-//                $ghe = null;
+                $error = "seat-empty";
+                $ghe = null;
             }
 
             if (isset($error)) {
-                header('Location: ?ctr=edit_ve_lich_chieu&id=' . $id . '&id_cn=' . $ic_cn . '&id_lc=' . $id_lc . '&error=seat_error');
-
+                header('Location: ?ctr=edit_ve_lich_chieu&id=' . $id . '&id_cn=' . $ic_cn . '&id_lc=' . $id_lc . '&error='.$error);
             } else {
                 $m_lich_chieu->edit_ve_of_lich_chieu($ghe, $gia_ve, $id);
-                header('location: ?ctr=load_ve_of_lich_chieu&id=' . $id_lc . '&id_cn=' . $id_cn);
+                header('location: ?ctr=load_ve_of_lich_chieu&id=' . $id_lc . '&id_cn=' . $id_cn.'&msg=success');
             }
         }
     }

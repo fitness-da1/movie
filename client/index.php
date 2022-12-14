@@ -23,47 +23,77 @@ switch ($ctr) {
         $home = new c_home();
         $home->show_home();
         break;
+        //show thông tin vé đặt
     case 'confirmation_screen':
-        $comfirmation_screen = new c_comfirmation_screen();
-        $comfirmation_screen->show_comfirmation_screen();
+        if (isset($_SESSION['ve'])) {
+            $comfirmation_screen = new c_comfirmation_screen();
+            $comfirmation_screen->show_comfirmation_screen();
+        }else{
+            $comfirmation_screen = new c_home();
+            $comfirmation_screen->show_home();
+        }
         break;
-    case 'contact':
-        $contact = new c_contact();
-        $contact->show_contact();
-        break;
+//    case 'contact':
+//        $contact = new c_contact();
+//        $contact->show_contact();
+//        break;
+
+//show trang chọn loại thanh toán
     case 'booking_type':
-        $booking_type = new c_booking_type();
-        $booking_type->show_booking_type();
+        if (isset($_SESSION['user'])&&isset($_SESSION['ve'])) {
+            $booking_type = new c_booking_type();
+            $booking_type->show_booking_type();
+        }else{
+            $booking_type = new c_home();
+            $booking_type->show_home();
+        }
         break;
+//show trang chọn lịch chiếu
     case 'movie_booking':
-        $movie_booking = new c_movie_booking();
-        $movie_booking->show_movie_booking();
+        if (isset($_SESSION['user'])) {
+            $movie_booking = new c_movie_booking();
+            $movie_booking->show_movie_booking();
+        }else{
+            $movie_booking = new c_home();
+            $movie_booking->show_home();
+        }
         break;
+//show trang chọn ghế
     case 'seat_booking':
-        $seat_booking = new c_seat_booking();
-        $seat_booking->show_seat_booking();
+        if (isset($_SESSION['user'])) {
+            $seat_booking = new c_seat_booking();
+            $seat_booking->show_seat_booking();
+        }else{
+            $seat_booking = new c_home();
+            $seat_booking->show_home();
+        }
         break;
+
     case 'movie_detail':
         $movie_detail = new c_movie_detail();
         $movie_detail->show_movie_detail();
         break;
-
+//lấy chi nhánh theo ngày
     case 'get_time_day':
         $get_time_day = new c_movie_booking();
         $get_time_day->get_time_day();
         break;
+//lấy giờ theo ngày và chi nhánh
     case 'show_gio_chieu':
         $show_gio_chieu = new c_movie_booking();
         $show_gio_chieu->show_time();
         break;
+
     case 'booking_ticket':
-        $seat_booking=new c_seat_booking();
-        $seat_booking->seat_booking();
+        if (isset($_SESSION['user'])) {
+            $seat_booking = new c_seat_booking();
+            $seat_booking->seat_booking();
+        }else{
+            $seat_booking = new c_home();
+            $seat_booking->show_home();
+        }
         break;
-//    case 'add_ticket':
-//        $add_ticket=new c_booking_type();
-//        $add_ticket->add_ticket();
-//        break;
+
     case 'login':
         $login = new c_user();
         $login->login();
@@ -96,6 +126,7 @@ switch ($ctr) {
         $vnpay->thanh_toan_vnpay();
         break;
     default:
-//        $error = new c_404_error();
-//        $error->show_404_error();
+        $home2 = new c_home();
+        $home2->show_home();
+        break;
 }

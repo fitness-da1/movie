@@ -1,8 +1,7 @@
 
 <?php
-if (isset($_SESSION['ve'])){
+//if (isset($_SESSION['ve'])){
     include_once("view/layout/header.php");
-    echo mt_srand(8);
 ?>
 	<!-- color picker start -->
 	<!-- st top header Start -->
@@ -93,10 +92,6 @@ if (isset($_SESSION['ve'])){
 										<li>VAT(5%): <span><?= number_format($_SESSION['ve']['so_luong_ghe']*50000*0.05)?> VNĐ</span>
 										</li>
 									</ul>
-<!--									<p>Booking Fees <span>Rs.60.00</span>-->
-<!--									</p>-->
-<!--									<p>Integrated GST (IGST) @ 18% <span>Rs.60.00</span>-->
-<!--									</p>-->
 								</div>
 								<div class="st_dtts_sb_h2 float_left">
 <!--									<h3>Tạm tính <span>--><?//=($_SESSION['ve']['so_luong_ghe']*50000)+($_SESSION['ve']['so_luong_ghe']*50000*0.05)?><!--</span></h3>-->
@@ -125,74 +120,9 @@ if (isset($_SESSION['ve'])){
 		</div>
 	</div>
 	<!-- st dtts section End -->
-	<!--main js file start-->
-<!--	<script src="asset/js/jquery_min.js"></script>-->
-<!--	<script src="asset/js/modernizr.js"></script>-->
-<!--	<script src="asset/js/bootstrap.js"></script>-->
-<!--	<script src="asset/js/owl.carousel.js"></script>-->
-<!--	<script src="asset/js/jquery.dlmenu.js"></script>-->
-<!--	<script src="asset/js/jquery.sticky.js"></script>-->
-<!--	<script src="asset/js/jquery.nice-select.min.js"></script>-->
-<!--	<script src="asset/js/jquery.magnific-popup.js"></script>-->
-<!--	<script src="asset/js/jquery.bxslider.min.js"></script>-->
-<!--	<script src="asset/js/venobox.min.js"></script>-->
-<!--	<script src="asset/js/smothscroll_part1.js"></script>-->
-<!--	<script src="asset/js/smothscroll_part2.js"></script>-->
-<!--	<script src="asset/js/plugin/rs_slider/jquery.themepunch.revolution.min.js"></script>-->
-<!--	<script src="asset/js/plugin/rs_slider/jquery.themepunch.tools.min.js"></script>-->
-<!--	<script src="asset/js/plugin/rs_slider/revolution.addon.snow.min.js"></script>-->
-<!--	<script src="asset/js/plugin/rs_slider/revolution.extension.actions.min.js"></script>-->
-<!--	<script src="asset/js/plugin/rs_slider/revolution.extension.carousel.min.js"></script>-->
-<!--	<script src="asset/js/plugin/rs_slider/revolution.extension.kenburn.min.js"></script>-->
-<!--	<script src="asset/js/plugin/rs_slider/revolution.extension.layeranimation.min.js"></script>-->
-<!--	<script src="asset/js/plugin/rs_slider/revolution.extension.migration.min.js"></script>-->
-<!--	<script src="asset/js/plugin/rs_slider/revolution.extension.navigation.min.js"></script>-->
-<!--	<script src="asset/js/plugin/rs_slider/revolution.extension.parallax.min.js"></script>-->
-<!--	<script src="asset/js/plugin/rs_slider/revolution.extension.slideanims.min.js"></script>-->
-<!--	<script src="asset/js/plugin/rs_slider/revolution.extension.video.min.js"></script>-->
-<!--	<script src="asset/js/custom.js"></script>-->
-	<!--main js file end-->
-	<script>
-		//* Isotope js
-		    function protfolioIsotope(){
-		        if ( $('.st_fb_filter_left_box_wrapper').length ){
-		            // Activate isotope in container
-		            $(".protfoli_inner, .portfoli_inner").imagesLoaded( function() {
-		                $(".protfoli_inner, .portfoli_inner").isotope({
-		                    layoutMode: 'masonry',
-		                });
-		            });
 
-		            // Add isotope click function
-		            $(".protfoli_filter li").on('click',function(){
-		                $(".protfoli_filter li").removeClass("active");
-		                $(this).addClass("active");
-		                var selector = $(this).attr("data-filter");
-		                $(".protfoli_inner, .portfoli_inner").isotope({
-		                    filter: selector,
-		                    animationOptions: {
-		                        duration: 450,
-		                        easing: "linear",
-		                        queue: false,
-		                    }
-		                });
-		                return false;
-		            });
-		        };
-		    };
-		 protfolioIsotope ();
-
-		  function changeQty(increase) {
-				            var qty = parseInt($('.select_number').find("input").val());
-				            if (!isNaN(qty)) {
-				                qty = increase ? qty + 1 : (qty > 1 ? qty - 1 : 1);
-				                $('.select_number').find("input").val(qty);
-				            } else {
-				                $('.select_number').find("input").val(1);
-				            }
-				        }
-	</script>
 <?php
-include_once("view/layout/footer.php"); }
-header("location: ?ctr=home");
+include_once("view/layout/footer.php");
+//}
+//header("location: ?ctr=home");
 ?>

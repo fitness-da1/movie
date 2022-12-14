@@ -8,7 +8,12 @@ class m_user extends database
         $this->setQuery($sql);
         return $this->loadRow(array($id));
     }
-
+public function read_user_email($email)
+    {
+        $sql = "SELECT * FROM user where email=?";
+        $this->setQuery($sql);
+        return $this->loadRow(array($email));
+    }
     public function update_user($email, $password, $full_name, $id)
     {
         $sql = "UPDATE user SET email=?,password=?, full_name=? where id=?";

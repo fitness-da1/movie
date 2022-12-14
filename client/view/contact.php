@@ -401,35 +401,6 @@
     <!-- st login wrapper End -->
     <!--main js file start-->
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<!--    <script src="view/asset/js/jquery_min.js"></script>-->
-<!--    <script src="view/asset/js/bootstrap.js"></script>-->
-<!--    <script src="view/asset/js/modernizr.js"></script>-->
-<!--    <script src="view/asset/js/owl.carousel.js"></script>-->
-<!--    <script src="view/asset/js/jquery.dlmenu.js"></script>-->
-<!--    <script src="view/asset/js/jquery.sticky.js"></script>-->
-<!--    <script src="view/asset/js/jquery.nice-select.min.js"></script>-->
-<!--    <script src="view/asset/js/jquery.magnific-popup.js"></script>-->
-<!--    <script src="view/asset/js/jquery.bxslider.min.js"></script>-->
-<!--    <script src="view/asset/js/venobox.min.js"></script>-->
-<!--    <script src="view/asset/js/smothscroll_part1.js"></script>-->
-<!--    <script src="view/asset/js/smothscroll_part2.js"></script>-->
-<!--    <script src="view/js/jquery.countTo.js"></script>-->
-<!--    <script src="view/js/jquery.inview.min.js"></script>-->
-<!--    <script src="view/js/jquery.shuffle.min.js"></script>-->
-<!--    <script src="view/asset/js/plugin/rs_slider/jquery.themepunch.revolution.min.js"></script>-->
-<!--    <script src="view/asset/js/plugin/rs_slider/jquery.themepunch.tools.min.js"></script>-->
-<!--    <script src="view/asset/js/plugin/rs_slider/revolution.addon.snow.min.js"></script>-->
-<!--    <script src="view/asset/js/plugin/rs_slider/revolution.extension.actions.min.js"></script>-->
-<!--    <script src="view/asset/js/plugin/rs_slider/revolution.extension.carousel.min.js"></script>-->
-<!--    <script src="view/asset/js/plugin/rs_slider/revolution.extension.kenburn.min.js"></script>-->
-<!--    <script src="view/asset/js/plugin/rs_slider/revolution.extension.layeranimation.min.js"></script>-->
-<!--    <script src="view/asset/js/plugin/rs_slider/revolution.extension.migration.min.js"></script>-->
-<!--    <script src="view/asset/js/plugin/rs_slider/revolution.extension.navigation.min.js"></script>-->
-<!--    <script src="view/asset/js/plugin/rs_slider/revolution.extension.parallax.min.js"></script>-->
-<!--    <script src="view/asset/js/plugin/rs_slider/revolution.extension.slideanims.min.js"></script>-->
-<!--    <script src="view/asset/js/plugin/rs_slider/revolution.extension.video.min.js"></script>-->
-<!--    <script src="view/js/contact_form.js"></script>-->
-<!--    <script src="view/asset/js/custom.js"></script>-->
     <!--main js file end-->
     <script>
         function initMap() {

@@ -38,8 +38,14 @@
 
                                 <span style="color: red">
                                     <?php
-                                    if (isset($_GET['error'])) {
+                                    if (isset($_GET['error'])&&$_GET['error']=='') {
                                         echo 'Vui lòng điền đầy đủ thông tin và đúng định dạng!';
+                                    }
+                                    if (isset($_GET['error'])&&$_GET['error']=='email_empty'){
+                                        echo 'Email đã tồn tại!';
+                                    }
+                                    if (isset($_GET['error'])&&$_GET['error']=='email_invalid'){
+                                        echo 'Email không đúng định dạng!';
                                     }
                                     ?>
                                     </span>

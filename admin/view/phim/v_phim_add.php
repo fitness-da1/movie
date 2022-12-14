@@ -129,6 +129,9 @@
         if (msg == 'success') {
             Swal.fire('Thêm thành công!', '', 'success');
         }
+        $('.swal2-confirm').on('click',function () {
+            window.open ('?ctr=phim_add','_self');
+        });
     </script>
     <script>
         let fileInput = document.querySelector('#validatedCustomFile');

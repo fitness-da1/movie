@@ -16,6 +16,8 @@ class c_the_loai
 
             } elseif (trim($name) == '') {
                 $error = 'Vui lòng điền đầy đủ thông tin!';
+//                header('Location: ?ctr=the_loai_add&msg=error');
+
             } else {
                 $error = "Tên thể loại đã tồn tại";
             }

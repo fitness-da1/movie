@@ -60,7 +60,7 @@
                             <div class="border-top">
                                 <div class="card-body">
                                     <button type="submit" class="btn btn-primary" name="btn_add_member">Thêm</button>
-                                    <!-- <button type="button" class="btn btn-primary" onclick="location.href='admin_member_list.php'">Danh sách</button> -->
+                                     <button type="button" class="btn btn-primary" onclick="location.href='?ctr=admin_member_list'">Danh sách</button>
                                 </div>
                             </div>
 
@@ -70,5 +70,26 @@
             </div>
         </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+    <script src="./view/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
 
+        var msg = getParameterByName('msg');
+        if (msg == 'success') {
+            Swal.fire('Thêm thành công!', '', 'success');
+        }
+        $('.swal2-confirm').on('click',function () {
+            window.open ('?ctr=admin_member_add','_self');
+        });
+    </script>
 <?php include_once 'view/layout/footer.php'; ?>

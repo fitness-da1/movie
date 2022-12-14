@@ -24,16 +24,8 @@
                             </thead>
                             <tbody>
                             <?php
-
                             foreach ($ve as $key => $value) {
-//                                $time_lich_chieu=$value->ngay_chieu." ".$value->gio_bat_dau;
-//                                $time=strtotime($time_lich_chieu);
-//                                $time_now=strtotime(date("Y-m-d H:i"));
-//                                echo $time."<br>";
-//                                echo $time_now."<br>";
-//                                echo strtotime(date("Y-m-d H:i") .'- 30 minutes')."<br>";
                                 ?>
-
                                 <tr>
                                     <td><?= $value->ten_khach_hang ?></td>
                                     <td><?= $value->ten_phim ?></td>
@@ -89,11 +81,25 @@
          ****************************************/
         $('#zero_config').DataTable();
 
-        function confirm_delete(id,name){
-            if(confirm('Bạn chắc chắn muốn xóa '+name)){
-                window.open('?ctr=admin_member_delete&id='+id,'_self');
-            }
-        }
     </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
 
+        var msg = getParameterByName('msg');
+        var dl = getParameterByName('dl');
+        if (msg == 'success') {
+            Swal.fire('Cập nhật thành công!', '', 'success');
+        }
+
+    </script>
 <?php include_once 'view/layout/footer.php'; ?>

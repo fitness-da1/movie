@@ -24,10 +24,10 @@ class c_admin_member
                 $error = 'Vui lòng điền đầy đủ thông tin và đúng định dạng!';
             }
             if (!isset($error)) {
-                $m_admin_member->create_admin_member($id, $password, $fullname, $email, $vai_tro);
-                echo "<script>alert('Thêm thành công!')</script>";
+                $m_admin_member->insert_admin_member($id, $email, md5($password), $fullname,$vai_tro);
+                header('location:?ctr=admin_member_add&msg=succes');
             }
-//            header('location:admin_member_add.php?result=' . $username);
+
         }
         include_once("view/admin_member/v_admin_member_add.php");
     }
@@ -57,20 +57,33 @@ class c_admin_member
             $id = $_POST['id'];
             $fullname = $_POST['fullname'];
             $email = $_POST['email'];
-            $password = $_POST['password'];
+
+            $admin=$m_admin_member->read_admin_member_by_id($id);
             $check_email = $this->validate_email($email);//check định dạng email
+            if($_POST['password']==$admin->password) {
+                $password = $_POST['password'];
+            }else{
+                $password=md5($_POST['password']);
+            }
+            if ($email!==$admin->email) {
+                $check=$m_admin_member->read_admin_member_by_email($email);
+            }
             if ($check_email === false) {
                 $error = 'Email không hợp lệ!';
-                header('location: ?ctr=admin_member_edit&id='.$id.'&error');
+                header('location: ?ctr=admin_member_edit&id='.$id.'&error=email_invalid');
             }
             if (empty(trim($password)) || empty(trim($fullname)) || empty(trim($email))) {
                 $error = 'Vui lòng điền đầy đủ thông tin và đúng định dạng!';
-                header('location: ?ctr=admin_member_edit&id='.$id.'&error');
+                header('location: ?ctr=admin_member_edit&id='.$id.'&error=');
 
             }
+            if (isset($check)&&$check) {
+                $error = "Email đã tồn tại";
+                header('location: ?ctr=admin_member_edit&id='.$id.'&error=email_empty');
+            }
             if (!isset($error)) {
-                $m_admin_member->edit_admin_member($email, $fullname, md5($password), $id);
-                header('location:?ctr=admin_member_list');
+                $m_admin_member->edit_admin_member($email, $fullname, $password, $id);
+                header('location:?ctr=admin_member_list&update=success');
             }
         }
 

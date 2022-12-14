@@ -34,8 +34,7 @@
                                                placeholder="Full Name Here" value="<?=$user->full_name?>">
                                     </div>
                                 </div>
-
-
+                                <span class="text-danger" <?=!isset($_GET['error'])?'hidden':''?>>Lỗi cập nhật</span>
                             </div>
 
                             <div class="border-top">

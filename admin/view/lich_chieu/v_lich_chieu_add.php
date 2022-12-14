@@ -169,5 +169,8 @@
         if (msg == 'success') {
             Swal.fire('Thêm thành công!', '', 'success');
         }
+        $('.swal2-confirm').on('click',function () {
+            window.open ('?ctr=lich_chieu_add','_self');
+        });
     </script>
 <?php include_once 'view/layout/footer.php'; ?>

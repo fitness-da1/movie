@@ -45,4 +45,26 @@
             }
         })
     </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+    <script src="./view/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        var msg = getParameterByName('msg');
+        if (msg == 'success') {
+            Swal.fire('Thêm thành công!', '', 'success');
+        }
+        $('.swal2-confirm').on('click',function () {
+            window.open ('?ctr=chi_nhanh_add','_self');
+        });
+    </script>
 <?php include_once 'view/layout/footer.php'; ?>

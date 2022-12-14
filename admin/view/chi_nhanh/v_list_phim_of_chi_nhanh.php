@@ -32,7 +32,7 @@
                                     <td><?= $value->ngay_khoi_chieu?></td>
 
                                     <td>
-                                        <button type="button" class="btn btn-primary" onclick="return confirm_delete('<?=$value->id_phim_of_cn?>','<?=$value->name?>') ">Xóa</button>
+                                        <button type="button" class="btn btn-primary" onclick="return confirm_delete('<?=$value->id_phim_of_cn?>','<?=$value->name?>','<?=$_GET["id"]?>') ">Xóa</button>
                                     </td>
                                 </tr>
                             <?php endforeach;?>
@@ -72,11 +72,44 @@
          *       Basic Table                   *
          ****************************************/
         $('#zero_config').DataTable();
-        function confirm_delete(id,name){
-            if(confirm('Bạn chắc chắn muốn xóa '+name)){
-                window.open('?ctr=phim_cn_delete&id='+id,'_self');
-            }
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function confirm_delete(id, name,id_cn) {
+            Swal.fire({
+                title: 'Bạn chắc chắn muốn xóa ' + name + '?',
+                text: "Bạn sẽ không thể hoàn tác sau khi xóa!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Đồng ý',
+                cancelButtonText: 'Hủy'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.open('?ctr=phim_cn_delete&id='+id+'&id_cn='+id_cn,'_self');
+                }
+            })
+        }
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        var msg = getParameterByName('msg');
+        var dl = getParameterByName('dl');
+        if (msg == 'success') {
+            Swal.fire('Cập nhật thành công!', '', 'success');
+        }
+        if (dl == 'success') {
+            Swal.fire('Xóa thành công!', '', 'success');
         }
     </script>
-
 <?php include_once 'view/layout/footer.php'; ?>

@@ -21,11 +21,11 @@ class m_admin_member extends database
         return $this->loadRow(array($id));
     }
 
-    public function edit_admin_member($fullname, $email, $password, $id)
+    public function edit_admin_member($email,$fullname, $password, $id)
     {
-        $sql = "UPDATE user set full_name = ?,email = ?,password = ? where id = ?";
+        $sql = "UPDATE user set email = ?,full_name = ?,password = ? where id = ?";
         $this->setQuery($sql);
-        return $this->execute(array($fullname, $email, $password, $id));
+        return $this->execute(array($email,$fullname, $password, $id));
     }
     public  function delete_admin_member($id)
     {
