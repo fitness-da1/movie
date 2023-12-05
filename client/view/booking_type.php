@@ -9,7 +9,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-					<div class="st_bt_top_back_btn float_left">	<a href="?ctr=seat_booking&id_lich_chieu=<?=$_SESSION['ve']['lich_chieu']?>"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Back</a>
+					<div class="st_bt_top_back_btn float_left">	<a href="?ctr=seat_booking&id_lich_chieu=<?=$_SESSION['ve']['lich_chieu']?>"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Trở lại</a>
 					</div>
 				</div>
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">

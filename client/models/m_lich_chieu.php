@@ -21,8 +21,8 @@ class m_lich_chieu extends database
                  INNER JOIN phim as ph on phfcn.id_phim=ph.id
                 INNER JOIN chi_nhanh as cn on phfcn.id_chi_nhanh=cn.id 
                 INNER JOIN phong_of_khung_gio_chieu as pfkgc on lc.Id_phong_of_khung_gio_chieu=pfkgc.id                               
-                where ph.id=? and lc.ngay_chieu=?
-                group by cn.name";
+                where ph.id=? and lc.ngay_chieu=?;
+//                group by cn.name";
         $this->setQuery($sql);
         return $this->loadAllRows(array($id_phim, $ngay));
     }

@@ -190,12 +190,11 @@
 <!--    </div>-->
 <!--</div>-->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
     $(document).ready(function () {
+
         if ($(".nav-item").hasClass('active')) {
             let ngay_chieu = $('.nav-item').attr('data-time');
             let id_phim=$('.nav-link').attr('data-phim');
@@ -220,6 +219,7 @@
             url: '?ctr=get_time_day&id_phim='+id_phim+'&ngay='+ngay_chieu,
             dataType: 'json',
             success: function (data) {
+                console.log(data);
                 $('#time').html("");
                 for (i = 0; i < data.length; i++) {
                     var time = data[i];

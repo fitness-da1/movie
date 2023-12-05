@@ -185,8 +185,8 @@ class c_payment
          * and open the template in the editor.
          */
 
-        $vnp_TmnCode = "N87IMUTS"; //Website ID in VNPAY System
-        $vnp_HashSecret = "EPUYZYYKQDKNAYDJKKHJWWLWDUKLULBS"; //Secret key
+        $vnp_TmnCode = "KHW6A7ZM"; //Website ID in VNPAY System
+        $vnp_HashSecret = "HJCGOYQPCBHTXSOAASYRLPAQKTXDFIGL"; //Secret key
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
         $vnp_Returnurl = "http://localhost/movie/client/?ctr=confirmation_screen";
 //        $vnp_apiUrl = " https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";

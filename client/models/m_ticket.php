@@ -5,7 +5,7 @@ class m_ticket extends database{
     public function insert_ticket_booking($id,$id_lich_chieu,$id_khach_hang,$gia_ve,$ngay_dat,$ghe,$TransactionNo,$type_pay,$pay_status){
         $sql="INSERT INTO ve VALUES (?,?,?,?,?,?,?,?,?)";
         $this->setQuery($sql);
-        echo $sql;
+//        echo $sql;
         return $this->execute(array($id,$id_lich_chieu,$id_khach_hang,$gia_ve,$ngay_dat,$ghe,$TransactionNo,$type_pay,$pay_status));
     }
 //    public function show_ticket_booking($id)
